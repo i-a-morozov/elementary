@@ -87,3 +87,26 @@ def hamiltonian_factory(vector:Callable[..., tuple[Array, Array, Array]],
         root = jax.numpy.sqrt(P_s**2 - P_x**2 - P_y**2 - constant)
         return p_s/beta - (root + a_s)
     return hamiltonian
+
+
+def autonomize(hamiltonian:Callable[..., Array]) -> Callable[..., Array]:
+    """
+    Autonomize hamiltonian
+
+    Parameters
+    ----------
+    hamiltonian: Callable[..., Array]
+        input hamiltonian
+
+    Returns
+    -------
+    Callable[..., Array]
+
+    """
+    def autonomous(qs: Array, ps: Array, s: Array, *args: Array) -> Array:
+        q_x, q_y, q_s, q_t = qs
+        p_x, p_y, p_s, p_t = ps
+        Qs = jax.numpy.stack([q_x, q_y, q_s])
+        Ps = jax.numpy.stack([p_x, p_y, p_s])
+        return hamiltonian(Qs, Ps, q_t, *args) + p_t
+    return autonomous
