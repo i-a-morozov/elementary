@@ -60,7 +60,7 @@ def drift(length:Optional[Array]=None,
     The returned element has 'rc' attribute containing construction parameters
 
     """
-    hamiltonian = hamiltonian_factory(vector, scalar, beta=beta, gamma=gamma)
+    hamiltonian = hamiltonian_factory(vector, scalar=None, beta=beta, gamma=gamma)
     data = [(integrator if integrator else midpoint)(hamiltonian, **settings if settings else {})]
     step = fold(sequence(0, order, data, merge=False))
     def closure(qsps, length=None):
