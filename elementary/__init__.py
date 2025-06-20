@@ -14,7 +14,8 @@ __all__ = [
     'table',
     'sequence',
     'midpoint',
-    'tao'
+    'tao',
+    'hamiltonian_factory'
 ]
 
 from sympint.functional import nest
@@ -29,3 +30,5 @@ from sympint.yoshida import sequence
 
 from sympint.integrators import midpoint
 from sympint.integrators import tao
+
+from elementary.hamiltonian import hamiltonian_factory
