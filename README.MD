@@ -1,6 +1,6 @@
 # elementary, 2025
 
-Generic accelerator elements modeling in JAX
+Generic differentiable accelerator elements modeling in JAX
 
 
 # Install

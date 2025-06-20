@@ -1,6 +1,6 @@
 [project]
 name = "elementary"
-description = "Generic accelerator elements modeling in JAX"
+description = "Generic differentiable accelerator elements modeling in JAX"
 readme = "README.MD"
 requires-python = ">=3.12"
 keywords = ["jax", "composable", "symplectic", "integrator", "differentiable", "accelerator", "modeling"]
