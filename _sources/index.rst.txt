@@ -1,7 +1,7 @@
 Welcome to sympint's documentation!
 ===================================
 
-Generic accelerator elements modeling in JAX
+Generic differentiable accelerator elements modeling in JAX
 
 .. toctree::
    :caption: Examples:
