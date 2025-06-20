@@ -8,12 +8,16 @@ Generic accelerator elements modeling in JAX
    :maxdepth: 1
 
    examples/example-00.ipynb
+   examples/example-01.ipynb
+   examples/example-02.ipynb
 
 .. toctree::
    :caption: API:
    :maxdepth: 1
 
+   modules/util.rst
    modules/hamiltonian.rst
+   modules/drift.rst
 
 Indices and tables
 ==================
