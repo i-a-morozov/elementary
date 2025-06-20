@@ -56,70 +56,23 @@ def hamiltonian_factory(vector:Callable[..., tuple[Array, Array, Array]],
     """
     beta = beta if beta else 1.0
     constant = 1/(beta**2*gamma**2) if gamma else 0.0
-    if scalar:
-        if curvature and torsion:
-            def hamiltonian(qs: Array, ps: Array, s: Array, *args: Array) -> Array:
-                q_x, q_y, *_ = qs
-                p_x, p_y, p_s = ps
-                a_x, a_y, a_s = vector(qs, s, *args)
-                P_s = p_s + 1/beta - scalar(qs, s, *args)
-                P_x = p_x - a_x
-                P_y = p_y - a_y
-                root = jax.numpy.sqrt(P_s**2 - P_x**2 - P_y**2 - constant)
-                moment = q_x*p_y - q_y*p_x
-                return p_s/beta - torsion(s)*moment - (1 + curvature(s)*q_x)*(root + a_s)
-            return hamiltonian
-        if curvature:
-            def hamiltonian(qs: Array, ps: Array, s: Array, *args: Array) -> Array:
-                q_x, *_ = qs
-                p_x, p_y, p_s = ps
-                a_x, a_y, a_s = vector(qs, s, *args)
-                P_s = p_s + 1/beta - scalar(qs, s, *args)
-                P_x = p_x - a_x
-                P_y = p_y - a_y
-                root = jax.numpy.sqrt(P_s**2 - P_x**2 - P_y**2 - constant)
-                return p_s/beta - (1 + curvature(s)*q_x)*(root + a_s)
-            return hamiltonian
-        def hamiltonian(qs: Array, ps: Array, s: Array, *args: Array) -> Array:
-            p_x, p_y, p_s = ps
-            a_x, a_y, a_s = vector(qs, s, *args)
-            P_s = p_s + 1/beta - scalar(qs, s, *args)
-            P_x = p_x - a_x
-            P_y = p_y - a_y
-            root = jax.numpy.sqrt(P_s**2 - P_x**2 - P_y**2 - constant)
-            return p_s/beta - (root + a_s)
-        return hamiltonian
-    if curvature and torsion:
-        def hamiltonian(qs: Array, ps: Array, s: Array, *args: Array) -> Array:
-            q_x, q_y, *_ = qs
-            p_x, p_y, p_s = ps
-            a_x, a_y, a_s = vector(qs, s, *args)
-            P_s = p_s + 1/beta
-            P_x = p_x - a_x
-            P_y = p_y - a_y
-            root = jax.numpy.sqrt(P_s**2 - P_x**2 - P_y**2 - constant)
-            moment = q_x*p_y - q_y*p_x
-            return p_s/beta - torsion(s)*moment - (1 + curvature(s)*q_x)*(root + a_s)
-        return hamiltonian
-    if curvature:
-        def hamiltonian(qs: Array, ps: Array, s: Array, *args: Array) -> Array:
-            q_x, *_ = qs
-            p_x, p_y, p_s = ps
-            a_x, a_y, a_s = vector(qs, s, *args)
-            P_s = p_s + 1/beta
-            P_x = p_x - a_x
-            P_y = p_y - a_y
-            root = jax.numpy.sqrt(P_s**2 - P_x**2 - P_y**2 - constant)
-            return p_s/beta - (1 + curvature(s)*q_x)*(root + a_s)
-        return hamiltonian
     def hamiltonian(qs: Array, ps: Array, s: Array, *args: Array) -> Array:
+        q_x, q_y, *_ = qs
         p_x, p_y, p_s = ps
         a_x, a_y, a_s = vector(qs, s, *args)
         P_s = p_s + 1/beta
+        if scalar:
+            P_s = P_s - scalar(qs, s, *args)
         P_x = p_x - a_x
         P_y = p_y - a_y
         root = jax.numpy.sqrt(P_s**2 - P_x**2 - P_y**2 - constant)
-        return p_s/beta - (root + a_s)
+        factor = 1.0
+        if curvature:
+            factor = 1 + curvature(s)*q_x
+        result = p_s/beta - factor*(root + a_s)
+        if torsion:
+            result = result - torsion(s)*(q_x*p_y - q_y*p_x)
+        return result
     return hamiltonian
 
 
