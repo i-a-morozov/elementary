@@ -10,6 +10,7 @@ Generic differentiable accelerator elements modeling in JAX
    examples/example-00.ipynb
    examples/example-01.ipynb
    examples/example-02.ipynb
+   examples/example-03.ipynb
 
 .. toctree::
    :caption: API:
@@ -17,7 +18,9 @@ Generic differentiable accelerator elements modeling in JAX
 
    modules/util.rst
    modules/hamiltonian.rst
+   modules/element.rst
    modules/drift.rst
+   modules/quadrupole.rst
 
 Indices and tables
 ==================

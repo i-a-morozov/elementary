@@ -12,7 +12,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "93a98916-2ec0-497d-9691-717f72bca891",
+   "id": "6d032ad2-c569-41b9-a29c-471a4d08f85a",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -22,16 +22,17 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "37392f2b-1fbf-4a53-92e3-55861a7dbcf8",
+   "id": "244ec679-fbed-4498-bbf5-e654c851e0eb",
    "metadata": {},
    "outputs": [],
    "source": [
     "import jax\n",
     "from jax import jit\n",
+    "from jax import jacrev\n",
     "\n",
     "from elementary.util import ptc\n",
     "from elementary.util import beta\n",
-    "from elementary.drift import drift\n",
+    "from elementary.drift import drift_factory\n",
     "\n",
     "jax.numpy.set_printoptions(linewidth=256, precision=12)"
    ]
@@ -39,7 +40,7 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "2cd4756f-92d9-4cf7-8473-39ed4fba9285",
+   "id": "903fc66f-330f-4f86-8210-daa8e647c440",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -51,7 +52,7 @@
   {
    "cell_type": "code",
    "execution_count": 4,
-   "id": "caf0596d-94af-497e-815c-66b9b615148d",
+   "id": "00273e8a-0af3-4259-b4fe-c2d49ba2e83c",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -64,7 +65,7 @@
   {
    "cell_type": "code",
    "execution_count": 5,
-   "id": "e48a9cb2-cfef-46fe-ba16-1fb38d75b238",
+   "id": "83eac826-dd08-46c6-ba9b-949f83aa7819",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -78,54 +79,20 @@
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "eeaf9ad1-81c2-43f3-83ef-8237a6947593",
+   "id": "01a2e5f8-94c3-4a85-a54c-348e0b9fa02f",
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "[ 0.00100010101   0.00100010101   0.000998999797  0.001           0.001          -0.0001        ]\n",
-      "[ 0.00100010101   0.00100010101   0.000998999798  0.001           0.001          -0.0001        ]\n",
-      "True\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
-    "# Define drift and compare with ptc (non-parametric)\n",
+    "# Define generic drift element\n",
     "\n",
     "gamma = 10**4\n",
-    "element = jit(drift(length=1.0, beta=beta(gamma), gamma=gamma))\n",
-    "\n",
-    "print(res := element(x))\n",
-    "print(ref := ptc(x, 'drift, l=1.0'))\n",
-    "print(jax.numpy.allclose(res, ref))"
+    "element = jit(drift_factory(beta=beta(gamma), gamma=gamma))"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 7,
-   "id": "22294d57-68d9-4d24-85e0-1256eb64b1ad",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "{'length': 1.0}\n"
-     ]
-    }
-   ],
-   "source": [
-    "# Parameters (e.g. length) set on initialization are saved in the 'rc' attribute\n",
-    "\n",
-    "print(element.rc)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 8,
-   "id": "53fdd775-00e4-43b9-8c8c-737d41a146c1",
+   "id": "10e8ce7b-0bc0-480b-9f73-0f5c5183eb96",
    "metadata": {},
    "outputs": [
     {
@@ -133,20 +100,51 @@
      "output_type": "stream",
      "text": [
       "[ 0.00100010101   0.00100010101   0.000998999797  0.001           0.001          -0.0001        ]\n",
-      "[ 1.000101010303e-03  1.000101010303e-03 -1.000202535512e-06 -4.365361716197e-20  1.638774596422e-20 -2.007338881283e-19]\n"
+      "[ 0.00100010101   0.00100010101   0.000998999797  0.001           0.001          -0.0001        ]\n",
+      "True\n"
      ]
     }
    ],
    "source": [
-    "# Define drift (parametric)\n",
+    "# Compare with PTC\n",
     "\n",
-    "gamma = 10**4\n",
+    "print(res := element(x, 1.0))\n",
+    "print(ref := ptc(x, 'drift', {'l': 1.0}, gamma=gamma))\n",
+    "print(jax.numpy.allclose(res, ref))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "7c555c8f-19b8-47ad-a025-ef37c5744b15",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[ 1.000000000000e+00  0.000000000000e+00  0.000000000000e+00  1.000102010606e+00  1.000303061531e-06 -1.000203036215e-03]\n",
+      " [ 0.000000000000e+00  1.000000000000e+00  0.000000000000e+00  1.000303061532e-06  1.000102010606e+00 -1.000203036215e-03]\n",
+      " [ 0.000000000000e+00  0.000000000000e+00  1.000000000000e+00 -1.000203036215e-03 -1.000203036215e-03  2.010609153797e-06]\n",
+      " [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  1.000000000000e+00  2.153530860291e-16  4.365802117678e-20]\n",
+      " [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00 -5.759110665868e-17  1.000000000000e+00 -1.666666809949e-20]\n",
+      " [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00 -1.030790028879e-17 -1.902883163971e-16  1.000000000000e+00]]\n",
+      "\n",
+      "[ 1.000101010303e-03  1.000101010303e-03 -1.000202535512e-06 -4.365361716197e-20  1.638774596422e-20 -2.007338881283e-19]\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Differentiability\n",
+    "\n",
     "length = jax.numpy.float64(1.0)\n",
-    "element = jit(drift(beta=beta(gamma), gamma=gamma))\n",
     "\n",
+    "print(jacrev(element)(x, length))\n",
+    "print()\n",
     "\n",
-    "print(element(x, length))\n",
-    "print(jax.jacrev(element, argnums=-1)(x, length))"
+    "print(jacrev(element, -1)(x, length))\n",
+    "print()"
    ]
   }
  ],
