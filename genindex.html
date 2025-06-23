@@ -46,6 +46,10 @@
 <li class="toctree-l1"><a class="reference internal" href="examples/example-01.html">Example-02: Hamiltonian factory (non-autonomous integration in extended phase space)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/example-02.html">Example-03: Drift element factory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/example-03.html">Example-04: Quadrupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-04.html">Example-05: Sextupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-05.html">Example-06: Octupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-06.html">Example-07: Multipole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-07.html">Example-08: Dipole element factory (body)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
@@ -64,6 +68,19 @@
 <li class="toctree-l1"><a class="reference internal" href="modules/quadrupole.html">Quadrupole</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/quadrupole.html#elementary.quadrupole.quadrupole_factory"><code class="docutils literal notranslate"><span class="pre">quadrupole_factory()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/quadrupole.html#elementary.quadrupole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/sextupole.html">Sextupole</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/sextupole.html#elementary.sextupole.sextupole_factory"><code class="docutils literal notranslate"><span class="pre">sextupole_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/sextupole.html#elementary.sextupole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/octupole.html">Octupole</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/octupole.html#elementary.octupole.octupole_factory"><code class="docutils literal notranslate"><span class="pre">octupole_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/octupole.html#elementary.octupole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/multipole.html">Multipole</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/multipole.html#elementary.multipole.multipole_factory"><code class="docutils literal notranslate"><span class="pre">multipole_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/multipole.html#elementary.multipole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/dipole.html">Dipole</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/dipole.html#elementary.dipole.curvature"><code class="docutils literal notranslate"><span class="pre">curvature()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/dipole.html#elementary.dipole.dipole_factory"><code class="docutils literal notranslate"><span class="pre">dipole_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/dipole.html#elementary.dipole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
 </ul>
 
         </div>
@@ -95,13 +112,16 @@
 <div class="genindex-jumpbox">
  <a href="#A"><strong>A</strong></a>
  | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#S"><strong>S</strong></a>
  | <a href="#V"><strong>V</strong></a>
  
 </div>
@@ -121,8 +141,20 @@
   </ul></td>
 </tr></table>
 
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/dipole.html#elementary.dipole.curvature">curvature() (in module elementary.dipole)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/dipole.html#elementary.dipole.dipole_factory">dipole_factory() (in module elementary.dipole)</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/drift.html#elementary.drift.drift_factory">drift_factory() (in module elementary.drift)</a>
 </li>
@@ -134,6 +166,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/element.html#elementary.element.element_factory">element_factory() (in module elementary.element)</a>
 </li>
+      <li>
+    elementary.dipole
+
+      <ul>
+        <li><a href="modules/dipole.html#module-elementary.dipole">module</a>
+</li>
+      </ul></li>
       <li>
     elementary.drift
 
@@ -148,8 +187,6 @@
         <li><a href="modules/element.html#module-elementary.element">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     elementary.hamiltonian
 
@@ -157,11 +194,34 @@
         <li><a href="modules/hamiltonian.html#module-elementary.hamiltonian">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    elementary.multipole
+
+      <ul>
+        <li><a href="modules/multipole.html#module-elementary.multipole">module</a>
+</li>
+      </ul></li>
+      <li>
+    elementary.octupole
+
+      <ul>
+        <li><a href="modules/octupole.html#module-elementary.octupole">module</a>
+</li>
+      </ul></li>
       <li>
     elementary.quadrupole
 
       <ul>
         <li><a href="modules/quadrupole.html#module-elementary.quadrupole">module</a>
+</li>
+      </ul></li>
+      <li>
+    elementary.sextupole
+
+      <ul>
+        <li><a href="modules/sextupole.html#module-elementary.sextupole">module</a>
 </li>
       </ul></li>
       <li>
@@ -197,17 +257,37 @@
     module
 
       <ul>
+        <li><a href="modules/dipole.html#module-elementary.dipole">elementary.dipole</a>
+</li>
         <li><a href="modules/drift.html#module-elementary.drift">elementary.drift</a>
 </li>
         <li><a href="modules/element.html#module-elementary.element">elementary.element</a>
 </li>
         <li><a href="modules/hamiltonian.html#module-elementary.hamiltonian">elementary.hamiltonian</a>
 </li>
+        <li><a href="modules/multipole.html#module-elementary.multipole">elementary.multipole</a>
+</li>
+        <li><a href="modules/octupole.html#module-elementary.octupole">elementary.octupole</a>
+</li>
         <li><a href="modules/quadrupole.html#module-elementary.quadrupole">elementary.quadrupole</a>
+</li>
+        <li><a href="modules/sextupole.html#module-elementary.sextupole">elementary.sextupole</a>
 </li>
         <li><a href="modules/util.html#module-elementary.util">elementary.util</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/multipole.html#elementary.multipole.multipole_factory">multipole_factory() (in module elementary.multipole)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/octupole.html#elementary.octupole.octupole_factory">octupole_factory() (in module elementary.octupole)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -227,13 +307,29 @@
   </ul></td>
 </tr></table>
 
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/sextupole.html#elementary.sextupole.sextupole_factory">sextupole_factory() (in module elementary.sextupole)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/drift.html#elementary.drift.vector">vector() (in module elementary.drift)</a>
+      <li><a href="modules/dipole.html#elementary.dipole.vector">vector() (in module elementary.dipole)</a>
 
       <ul>
+        <li><a href="modules/drift.html#elementary.drift.vector">(in module elementary.drift)</a>
+</li>
+        <li><a href="modules/multipole.html#elementary.multipole.vector">(in module elementary.multipole)</a>
+</li>
+        <li><a href="modules/octupole.html#elementary.octupole.vector">(in module elementary.octupole)</a>
+</li>
         <li><a href="modules/quadrupole.html#elementary.quadrupole.vector">(in module elementary.quadrupole)</a>
+</li>
+        <li><a href="modules/sextupole.html#elementary.sextupole.vector">(in module elementary.sextupole)</a>
 </li>
       </ul></li>
   </ul></td>

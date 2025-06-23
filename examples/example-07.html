@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example-08: Dipole element factory (body) &mdash; elementary  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Util" href="../modules/util.html" />
+    <link rel="prev" title="Example-07: Multipole element factory" href="example-06.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            elementary
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="example-00.html">Example-01: Functional iteration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-01.html">Example-02: Hamiltonian factory (non-autonomous integration in extended phase space)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-02.html">Example-03: Drift element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-03.html">Example-04: Quadrupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-04.html">Example-05: Sextupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-05.html">Example-06: Octupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-06.html">Example-07: Multipole element factory</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example-08: Dipole element factory (body)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html">Util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.beta"><code class="docutils literal notranslate"><span class="pre">beta()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.gamma"><code class="docutils literal notranslate"><span class="pre">gamma()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.ptc"><code class="docutils literal notranslate"><span class="pre">ptc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/hamiltonian.html">Hamiltonian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/hamiltonian.html#elementary.hamiltonian.autonomize"><code class="docutils literal notranslate"><span class="pre">autonomize()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/hamiltonian.html#elementary.hamiltonian.hamiltonian_factory"><code class="docutils literal notranslate"><span class="pre">hamiltonian_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/element.html">Element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/element.html#elementary.element.element_factory"><code class="docutils literal notranslate"><span class="pre">element_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/drift.html">Drift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/drift.html#elementary.drift.drift_factory"><code class="docutils literal notranslate"><span class="pre">drift_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/drift.html#elementary.drift.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/quadrupole.html">Quadrupole</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/quadrupole.html#elementary.quadrupole.quadrupole_factory"><code class="docutils literal notranslate"><span class="pre">quadrupole_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/quadrupole.html#elementary.quadrupole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/sextupole.html">Sextupole</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/sextupole.html#elementary.sextupole.sextupole_factory"><code class="docutils literal notranslate"><span class="pre">sextupole_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/sextupole.html#elementary.sextupole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/octupole.html">Octupole</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/octupole.html#elementary.octupole.octupole_factory"><code class="docutils literal notranslate"><span class="pre">octupole_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/octupole.html#elementary.octupole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/multipole.html">Multipole</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/multipole.html#elementary.multipole.multipole_factory"><code class="docutils literal notranslate"><span class="pre">multipole_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/multipole.html#elementary.multipole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/dipole.html">Dipole</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/dipole.html#elementary.dipole.curvature"><code class="docutils literal notranslate"><span class="pre">curvature()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/dipole.html#elementary.dipole.dipole_factory"><code class="docutils literal notranslate"><span class="pre">dipole_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/dipole.html#elementary.dipole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">elementary</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Example-08: Dipole element factory (body)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples/example-07.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Example-08:-Dipole-element-factory-(body)">
+<h1>Example-08: Dipole element factory (body)<a class="headerlink" href="#Example-08:-Dipole-element-factory-(body)" title="Link to this heading"></a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this example dipole factory is illustrated</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">jit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">jacrev</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">elementary.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">ptc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">elementary.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">beta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">elementary.dipole</span><span class="w"> </span><span class="kn">import</span> <span class="n">dipole_factory</span>
+
+<span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set data type</span>
+
+<span class="n">jax</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;jax_enable_x64&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set device</span>
+
+<span class="n">device</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">devices</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="n">jax</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s1">&#39;jax_default_device&#39;</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set initial condition</span>
+
+<span class="p">(</span><span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span><span class="p">)</span> <span class="o">=</span> <span class="n">qs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">])</span>
+<span class="p">(</span><span class="n">p_x</span><span class="p">,</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">p_s</span><span class="p">)</span> <span class="o">=</span> <span class="n">ps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0001</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define generic quadrupole element</span>
+
+<span class="n">gamma</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">dipole_factory</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">(</span><span class="n">gamma</span><span class="p">),</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">settings</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">ns</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare with PTC</span>
+
+<span class="n">length</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span> <span class="o">:=</span> <span class="n">element</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">angle</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ref</span> <span class="o">:=</span> <span class="n">ptc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;sbend&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">length</span><span class="p">),</span> <span class="s1">&#39;angle&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span> <span class="s1">&#39;kill_ent_fringe&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span><span class="p">,</span> <span class="s1">&#39;kill_exi_fringe&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span><span class="p">},</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">ref</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[-0.007993633465  0.006999752089  0.001447886312  0.001006197152  0.001          -0.0001        ]
+[-0.007993633465  0.006999752089  0.001447886312  0.001006197152  0.001          -0.0001        ]
+True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Differentiability</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">)(</span><span class="n">x</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">angle</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">angle</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[ 9.988005543727e-01  0.000000000000e+00  0.000000000000e+00  1.998921181261e+00 -4.798292007475e-05  4.797812178277e-02]
+ [ 4.998421799247e-05  1.000000000000e+00  0.000000000000e+00  5.199395592224e-05  1.999754088219e+00 -1.999122783077e-03]
+ [-4.997921957070e-02  0.000000000000e+00  1.000000000000e+00 -5.198875652668e-02 -1.999122783077e-03 -8.292180969377e-04]
+ [-1.249479231767e-03  0.000000000000e+00  0.000000000000e+00  9.987002761773e-01 -4.998421768169e-05  4.997921925994e-02]
+ [-1.549980530634e-25  0.000000000000e+00  0.000000000000e+00  6.017762306606e-25  1.000000000000e+00  6.199014981798e-24]
+ [-8.988083938862e-29  0.000000000000e+00  0.000000000000e+00 -7.109608908304e-29  2.639602544579e-29  1.000000000000e+00]]
+
+[ 9.971860391506e-04  1.000125965538e-03 -2.595294164285e-05 -6.247396158831e-06 -3.836637364804e-28 -1.379193256298e-30]
+
+</pre></div></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="example-06.html" class="btn btn-neutral float-left" title="Example-07: Multipole element factory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../modules/util.html" class="btn btn-neutral float-right" title="Util" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ivan Morozov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
