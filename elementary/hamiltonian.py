@@ -68,10 +68,10 @@ def hamiltonian_factory(vector:Callable[..., tuple[Array, Array, Array]],
         root = jax.numpy.sqrt(P_s**2 - P_x**2 - P_y**2 - constant)
         factor = 1.0
         if curvature:
-            factor = 1 + curvature(s)*q_x
+            factor = 1 + curvature(s, *args)*q_x
         result = p_s/beta - factor*(root + a_s)
         if torsion:
-            result = result - torsion(s)*(q_x*p_y - q_y*p_x)
+            result = result - torsion(s, *args)*(q_x*p_y - q_y*p_x)
         return result
     return hamiltonian
 
