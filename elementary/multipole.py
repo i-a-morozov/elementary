@@ -13,25 +13,6 @@ from jax import Array
 
 from elementary.element import element_factory
 
-def vector(qs:Array,
-           s:Array,
-           kq_n:Array,
-           kq_s:Array,
-           ks_n:Array,
-           ks_s:Array,
-           ko_n:Array,
-           ko_s:Array) -> tuple[Array, Array, Array]:
-    """
-    Vector potential
-
-    """
-    q_x, q_y, _ = qs
-    a_x, a_y, a_s = jax.numpy.zeros_like(qs)
-    a_s = a_s - 1/2*kq_n*(q_x**2 - q_y**2) + kq_s*q_x*q_y
-    a_s = a_s - ks_n/2*(q_x**3/3 - q_x*q_y**2) - ks_s/2*(-q_x**2*q_y + q_y**3/3)
-    a_s = a_s - ko_n/6*(q_x**4/4 - 3*q_x**2*q_y**2/2 + q_y**4/4) - ko_s/6*(-q_x**3*q_y + q_x*q_y**3)
-    return a_x, a_y, a_s
-
 
 def multipole_factory(beta:Optional[float]=None,
                       gamma:Optional[float]=None,
@@ -76,3 +57,22 @@ def multipole_factory(beta:Optional[float]=None,
     def multipole(qsps, length, kq_n, kq_s, ks_n, ks_s, ko_n, ko_s):
         return element(qsps, length, 0.0, kq_n, kq_s, ks_n, ks_s, ko_n, ko_s)
     return multipole
+
+def vector(qs:Array,
+           s:Array,
+           kq_n:Array,
+           kq_s:Array,
+           ks_n:Array,
+           ks_s:Array,
+           ko_n:Array,
+           ko_s:Array) -> tuple[Array, Array, Array]:
+    """
+    Vector potential
+
+    """
+    q_x, q_y, _ = qs
+    a_x, a_y, a_s = jax.numpy.zeros_like(qs)
+    a_s = a_s - 1/2*kq_n*(q_x**2 - q_y**2) + kq_s*q_x*q_y
+    a_s = a_s - ks_n/2*(q_x**3/3 - q_x*q_y**2) - ks_s/2*(-q_x**2*q_y + q_y**3/3)
+    a_s = a_s - ko_n/6*(q_x**4/4 - 3*q_x**2*q_y**2/2 + q_y**4/4) - ko_s/6*(-q_x**3*q_y + q_x*q_y**3)
+    return a_x, a_y, a_s

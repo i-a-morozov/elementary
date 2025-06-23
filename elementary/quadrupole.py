@@ -13,16 +13,6 @@ from jax import Array
 
 from elementary.element import element_factory
 
-def vector(qs:Array, s:Array, kn:Array, ks:Array) -> tuple[Array, Array, Array]:
-    """
-    Vector potential
-
-    """
-    q_x, q_y, _ = qs
-    a_x, a_y, a_s = jax.numpy.zeros_like(qs)
-    a_s = -1/2*kn*(q_x**2 - q_y**2) + ks*q_x*q_y
-    return a_x, a_y, a_s
-
 
 def quadrupole_factory(beta:Optional[float]=None,
                        gamma:Optional[float]=None,
@@ -67,3 +57,13 @@ def quadrupole_factory(beta:Optional[float]=None,
     def quadrupole(qsps, length, kn, ks):
         return element(qsps, length, 0.0, kn, ks)
     return quadrupole
+
+def vector(qs:Array, s:Array, kn:Array, ks:Array) -> tuple[Array, Array, Array]:
+    """
+    Vector potential
+
+    """
+    q_x, q_y, _ = qs
+    a_x, a_y, a_s = jax.numpy.zeros_like(qs)
+    a_s = -1/2*kn*(q_x**2 - q_y**2) + ks*q_x*q_y
+    return a_x, a_y, a_s

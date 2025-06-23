@@ -13,16 +13,6 @@ from jax import Array
 
 from elementary.element import element_factory
 
-def vector(qs:Array, s:Array, kn:Array, ks:Array) -> tuple[Array, Array, Array]:
-    """
-    Vector potential
-
-    """
-    q_x, q_y, _ = qs
-    a_x, a_y, a_s = jax.numpy.zeros_like(qs)
-    a_s = -kn/6*(q_x**4/4 - 3*q_x**2*q_y**2/2 + q_y**4/4) - ks/6*(-q_x**3*q_y + q_x*q_y**3)
-    return a_x, a_y, a_s
-
 
 def octupole_factory(beta:Optional[float]=None,
                      gamma:Optional[float]=None,
@@ -67,3 +57,13 @@ def octupole_factory(beta:Optional[float]=None,
     def octupole(qsps, length, kn, ks):
         return element(qsps, length, 0.0, kn, ks)
     return octupole
+
+def vector(qs:Array, s:Array, kn:Array, ks:Array) -> tuple[Array, Array, Array]:
+    """
+    Vector potential
+
+    """
+    q_x, q_y, _ = qs
+    a_x, a_y, a_s = jax.numpy.zeros_like(qs)
+    a_s = -kn/6*(q_x**4/4 - 3*q_x**2*q_y**2/2 + q_y**4/4) - ks/6*(-q_x**3*q_y + q_x*q_y**3)
+    return a_x, a_y, a_s

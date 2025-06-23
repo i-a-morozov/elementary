@@ -13,13 +13,6 @@ from jax import Array
 
 from elementary.element import element_factory
 
-def vector(qs:Array, s:Array) -> tuple[Array, Array, Array]:
-    """
-    Vector potential
-
-    """
-    return tuple(jax.numpy.zeros_like(qs))
-
 
 def drift_factory(beta:Optional[float]=None,
                   gamma:Optional[float]=None,
@@ -64,3 +57,10 @@ def drift_factory(beta:Optional[float]=None,
     def drift(qsps, length):
         return element(qsps, length, 0.0)
     return drift
+
+def vector(qs:Array, s:Array) -> tuple[Array, Array, Array]:
+    """
+    Vector potential
+
+    """
+    return tuple(jax.numpy.zeros_like(qs))
