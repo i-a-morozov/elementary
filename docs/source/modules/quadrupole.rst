@@ -1,0 +1,2 @@
+.. automodule:: elementary.quadrupole
+    :members:
