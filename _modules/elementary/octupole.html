@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/example-05.html">Example-06: Octupole element factory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/example-06.html">Example-07: Multipole element factory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/example-07.html">Example-08: Dipole element factory (body)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/example-08.html">Example-08: Dipole element factory (body + cylindrical multipole)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
@@ -80,7 +81,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../modules/dipole.html">Dipole</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules/dipole.html#elementary.dipole.curvature"><code class="docutils literal notranslate"><span class="pre">curvature()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules/dipole.html#elementary.dipole.dipole_factory"><code class="docutils literal notranslate"><span class="pre">dipole_factory()</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../modules/dipole.html#elementary.dipole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/dipole.html#elementary.dipole.vector_dipole"><code class="docutils literal notranslate"><span class="pre">vector_dipole()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/dipole.html#elementary.dipole.vector_octupole"><code class="docutils literal notranslate"><span class="pre">vector_octupole()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/dipole.html#elementary.dipole.vector_quadrupole"><code class="docutils literal notranslate"><span class="pre">vector_quadrupole()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/dipole.html#elementary.dipole.vector_sextupole"><code class="docutils literal notranslate"><span class="pre">vector_sextupole()</span></code></a></li>
 </ul>
 
         </div>
@@ -122,19 +126,6 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">Array</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">elementary.element</span><span class="w"> </span><span class="kn">import</span> <span class="n">element_factory</span>
-
-<div class="viewcode-block" id="vector">
-<a class="viewcode-back" href="../../modules/octupole.html#elementary.octupole.vector">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">vector</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">kn</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">ks</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Vector potential</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">qs</span>
-    <span class="n">a_x</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">a_s</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">qs</span><span class="p">)</span>
-    <span class="n">a_s</span> <span class="o">=</span> <span class="o">-</span><span class="n">kn</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="p">(</span><span class="n">q_x</span><span class="o">**</span><span class="mi">4</span><span class="o">/</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">q_x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">q_y</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">q_y</span><span class="o">**</span><span class="mi">4</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="n">ks</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">q_x</span><span class="o">**</span><span class="mi">3</span><span class="o">*</span><span class="n">q_y</span> <span class="o">+</span> <span class="n">q_x</span><span class="o">*</span><span class="n">q_y</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">a_x</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">a_s</span></div>
-
 
 
 <div class="viewcode-block" id="octupole_factory">
@@ -182,6 +173,19 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">octupole</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">kn</span><span class="p">,</span> <span class="n">ks</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">element</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">kn</span><span class="p">,</span> <span class="n">ks</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">octupole</span></div>
+
+
+<div class="viewcode-block" id="vector">
+<a class="viewcode-back" href="../../modules/octupole.html#elementary.octupole.vector">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">vector</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">kn</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">ks</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Vector potential</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">qs</span>
+    <span class="n">a_x</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">a_s</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">qs</span><span class="p">)</span>
+    <span class="n">a_s</span> <span class="o">=</span> <span class="o">-</span><span class="n">kn</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="p">(</span><span class="n">q_x</span><span class="o">**</span><span class="mi">4</span><span class="o">/</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">q_x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">q_y</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">q_y</span><span class="o">**</span><span class="mi">4</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="n">ks</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">q_x</span><span class="o">**</span><span class="mi">3</span><span class="o">*</span><span class="n">q_y</span> <span class="o">+</span> <span class="n">q_x</span><span class="o">*</span><span class="n">q_y</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a_x</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">a_s</span></div>
 
 </pre></div>
 

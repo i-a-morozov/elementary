@@ -83,7 +83,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Define generic quadrupole element\n",
+    "# Define generic dipole element\n",
     "\n",
     "gamma = 10**6\n",
     "element = jit(dipole_factory(beta=beta(gamma), gamma=gamma, order=2**1, iterations=100, settings=dict(ns=2**1)))"

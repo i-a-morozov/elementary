@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Util" href="../modules/util.html" />
+    <link rel="next" title="Example-08: Dipole element factory (body + cylindrical multipole)" href="example-08.html" />
     <link rel="prev" title="Example-07: Multipole element factory" href="example-06.html" /> 
 </head>
 
@@ -56,6 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="example-05.html">Example-06: Octupole element factory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-06.html">Example-07: Multipole element factory</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Example-08: Dipole element factory (body)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-08.html">Example-08: Dipole element factory (body + cylindrical multipole)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
@@ -86,7 +87,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../modules/dipole.html">Dipole</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/dipole.html#elementary.dipole.curvature"><code class="docutils literal notranslate"><span class="pre">curvature()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/dipole.html#elementary.dipole.dipole_factory"><code class="docutils literal notranslate"><span class="pre">dipole_factory()</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/dipole.html#elementary.dipole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/dipole.html#elementary.dipole.vector_dipole"><code class="docutils literal notranslate"><span class="pre">vector_dipole()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/dipole.html#elementary.dipole.vector_octupole"><code class="docutils literal notranslate"><span class="pre">vector_octupole()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/dipole.html#elementary.dipole.vector_quadrupole"><code class="docutils literal notranslate"><span class="pre">vector_quadrupole()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/dipole.html#elementary.dipole.vector_sextupole"><code class="docutils literal notranslate"><span class="pre">vector_sextupole()</span></code></a></li>
 </ul>
 
         </div>
@@ -176,7 +180,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define generic quadrupole element</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define generic dipole element</span>
 
 <span class="n">gamma</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
 <span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">dipole_factory</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">(</span><span class="n">gamma</span><span class="p">),</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">settings</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">ns</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">)))</span>
@@ -245,7 +249,7 @@ True
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="example-06.html" class="btn btn-neutral float-left" title="Example-07: Multipole element factory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../modules/util.html" class="btn btn-neutral float-right" title="Util" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="example-08.html" class="btn btn-neutral float-right" title="Example-08: Dipole element factory (body + cylindrical multipole)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
