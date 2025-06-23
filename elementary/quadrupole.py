@@ -13,14 +13,14 @@ from jax import Array
 
 from elementary.element import element_factory
 
-def vector(qs:Array, s:Array, kn:Array, ks:Array) -> tuple[:Array, Array, Array]:
+def vector(qs:Array, s:Array, kn:Array, ks:Array) -> tuple[Array, Array, Array]:
     """
     Vector potential
 
     """
     q_x, q_y, _ = qs
     a_x, a_y, a_s = jax.numpy.zeros_like(qs)
-    a_s = - 1/2*kn*(q_x**2 - q_y**2) + ks*q_x*q_y
+    a_s = -1/2*kn*(q_x**2 - q_y**2) + ks*q_x*q_y
     return a_x, a_y, a_s
 
 
