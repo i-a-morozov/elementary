@@ -1,0 +1,2 @@
+.. automodule:: elementary.octupole
+    :members:
