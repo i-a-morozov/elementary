@@ -15,6 +15,7 @@ Generic differentiable accelerator elements modeling in JAX
    examples/example-05.ipynb
    examples/example-06.ipynb
    examples/example-07.ipynb
+   examples/example-08.ipynb
 
 .. toctree::
    :caption: API:
