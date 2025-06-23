@@ -13,7 +13,8 @@ from jax import Array
 
 
 def ptc(qsps:Array,
-        element:str, *,
+        kind:str,
+        parameters:dict[str, str|int|float], *,
         gamma:float=10.0**9,
         exact:bool=True,
         tx:float=0.0,
@@ -29,8 +30,10 @@ def ptc(qsps:Array,
     ----------
     qsps: Array
         initial condition (sector ordering)
-    element: str
-        input element (type, ..., parameter=value, ...)
+    kind: sts
+        element kind (drift, quadrupole, ...)
+    parameters: dict[str, str|int|float]
+        element parameters
     gamma: float, default=10**9
         gamma
     exact: bool, defaul=True
@@ -57,7 +60,7 @@ def ptc(qsps:Array,
     file = Path('ptc')
     data = Path('track.obs0001.p0001')
     code = f"""
-    mag:{element};
+    mag:{kind},{''.join([f'{key}={str(value)}, ' for key, value in parameters.items()])};
     map:line=(mag) ;
     beam,gamma={gamma},particle=electron ;
     set,format="20.20f","-20s" ;
