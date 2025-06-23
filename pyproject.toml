@@ -34,6 +34,7 @@ docs = ["pandoc", "sphinx-rtd-theme", "ipykernel", "nbsphinx"]
 
 [tool.pylint.'MESSAGES CONTROL']
 disable=[
+    "duplicate-code",
     "raw-checker-failed",
     "bad-inline-option",
     "locally-disabled",
