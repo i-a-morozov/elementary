@@ -19,7 +19,8 @@ def dipole_factory(multipole:bool=False,
                    driver:Optional[Callable[..., Array]]=None,
                    settings:Optional[dict]=None,
                    order:int=0,
-                   iterations:int=1) -> Callable[..., Array]:
+                   iterations:int=1,
+                   final:bool=True) -> Callable[..., Array]:
     """
     Dipole element transfer map
 
@@ -39,8 +40,8 @@ def dipole_factory(multipole:bool=False,
         yoshida composition order
     iterations: int, default=1
         number of integration
-    autonomous: bool, default=True
-        autonomous flag
+    final: bool, default=True
+        flag to return only the final state
 
     Returns
     -------
@@ -76,9 +77,11 @@ def dipole_factory(multipole:bool=False,
                               settings=settings,
                               order=order,
                               iterations=iterations,
-                              autonomous=True)
+                              autonomous=True,
+                              final=final)
     def dipole(qsps, length, angle, *args):
-        return element(qsps, length, 0.0, length/angle, *args)
+        r = jax.numpy.abs(length)/angle
+        return element(qsps, length, 0.0, r, *args)
     return dipole
 
 

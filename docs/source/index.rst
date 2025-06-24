@@ -1,4 +1,4 @@
-Welcome to sympint's documentation!
+Welcome to elementary's documentation!
 ===================================
 
 Generic differentiable accelerator elements modeling in JAX

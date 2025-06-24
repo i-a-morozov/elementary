@@ -19,7 +19,8 @@ def sextupole_factory(beta:Optional[float]=None,
                       driver:Optional[Callable[..., Array]]=None,
                       settings:Optional[dict]=None,
                       order:int=0,
-                      iterations:int=1) -> Callable[..., Array]:
+                      iterations:int=1,
+                      final:bool=True) -> Callable[..., Array]:
     """
     Sextupole element transfer map
 
@@ -37,8 +38,8 @@ def sextupole_factory(beta:Optional[float]=None,
         yoshida composition order
     iterations: int, default=1
         number of integration
-    autonomous: bool, default=True
-        autonomous flag
+    final: bool, default=True
+        flag to return only the final state
 
     Returns
     -------
@@ -53,7 +54,8 @@ def sextupole_factory(beta:Optional[float]=None,
                               settings=settings,
                               order=order,
                               iterations=iterations,
-                              autonomous=True)
+                              autonomous=True,
+                              final=final)
     def sextupole(qsps, length, kn, ks):
         return element(qsps, length, 0.0, kn, ks)
     return sextupole
