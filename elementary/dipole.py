@@ -13,7 +13,8 @@ from jax import Array
 
 from elementary.element import element_factory
 
-def dipole_factory(multipole:bool=False,
+def dipole_factory(exact:bool=False,
+                   multipole:bool=False,
                    beta:Optional[float]=None,
                    gamma:Optional[float]=None,
                    driver:Optional[Callable[..., Array]]=None,
@@ -26,6 +27,8 @@ def dipole_factory(multipole:bool=False,
 
     Parameters
     ----------
+    exact: bool, default=False
+        ideal transfromation
     multipole: bool, default=False
         multipole flag
     beta: Optional[float]
@@ -48,6 +51,12 @@ def dipole_factory(multipole:bool=False,
     Callable[..., Array]
 
     """
+    if exact:
+        beta = beta if beta else 1.0
+        constant = 1/(beta**2*gamma**2) if gamma else 0.0
+        def dipole(qsps:Array, length:Array, angle:Array) -> Array:
+            return mapping(qsps, length, angle, beta, constant)
+        return dipole
     def vector(qs:Array, s:Array, r:Array) -> tuple[Array, Array, Array]:
         return vector_dipole(qs, s, r)
     if multipole:
@@ -268,3 +277,25 @@ def vector_octupole(qs:Array, s:Array, r:Array, kn:Array, ks:Array) -> tuple[Arr
         q_y**5/(10.*r)
     )
     return a_x, a_y, a_s
+
+def mapping(qsps:Array, length:Array, angle:Array, beta:float=1.0, constant:float=0.0) -> Array:
+    """
+    Exact sector bend body transformation
+
+    """
+    q_x, q_y, q_s, p_x, p_y, p_s = qsps
+    r = length/angle
+    cos = jax.numpy.cos(angle)
+    sin = jax.numpy.sin(angle)
+    p_s = 1/beta + p_s
+    pa = jax.numpy.sqrt(p_s**2 - p_x**2 - p_y**2 - constant)
+    pb = jax.numpy.sqrt(p_s**2 - p_y**2 - constant)
+    pc = (pa - (q_x + r)/r)*sin
+    pd = p_x*cos + pc
+    Q_x = (-r + (q_x + r - pa*r)*cos + r*(p_x*sin + jax.numpy.sqrt(pb**2 - pd**2)))
+    Q_y = (q_y + p_y*(length + r*(jax.numpy.asin(p_x/pb) - jax.numpy.asin(pd/pb))))
+    Q_s = q_s + length/beta - p_s*length - r*p_s*(jax.numpy.asin(p_x/pb) - jax.numpy.asin(pd/pb))
+    P_x = pd
+    P_y = p_y
+    P_s = p_s - 1/beta
+    return jax.numpy.stack([Q_x, Q_y, Q_s, P_x, P_y, P_s])
