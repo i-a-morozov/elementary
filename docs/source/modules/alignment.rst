@@ -1,0 +1,2 @@
+.. automodule:: elementary.alignment
+    :members:
