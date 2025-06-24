@@ -135,7 +135,8 @@
                   <span class="n">driver</span><span class="p">:</span><span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Array</span><span class="p">]]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">settings</span><span class="p">:</span><span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">order</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-                  <span class="n">iterations</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Array</span><span class="p">]:</span>
+                  <span class="n">iterations</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="n">final</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Array</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Drift element transfer map</span>
 
@@ -153,8 +154,8 @@
 <span class="sd">        yoshida composition order</span>
 <span class="sd">    iterations: int, default=1</span>
 <span class="sd">        number of integration</span>
-<span class="sd">    autonomous: bool, default=True</span>
-<span class="sd">        autonomous flag</span>
+<span class="sd">    final: bool, default=True</span>
+<span class="sd">        flag to return only the final state</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -169,7 +170,8 @@
                               <span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">,</span>
                               <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
                               <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span><span class="p">,</span>
-                              <span class="n">autonomous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                              <span class="n">autonomous</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                              <span class="n">final</span><span class="o">=</span><span class="n">final</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">drift</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">element</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">drift</span></div>
