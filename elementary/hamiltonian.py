@@ -1,8 +1,8 @@
-"""
+r"""
 Hamiltonian
 -----------
 
-Generic single particle Hamiltonian factory
+Generic single particle accelerator Hamiltonian factory
 
 """
 from typing import Callable
@@ -20,13 +20,6 @@ def hamiltonian_factory(vector:Callable[..., tuple[Array, Array, Array]],
                         gamma:Optional[float]=None) -> Callable[..., Array]:
     """
     Generic single particle Hamiltonian factory
-
-    H = H(qs, ps; s) = H(q_x, q_y, q_s, p_x, p_y, p_s; s)
-    H = p_s/beta - torsion(s)*(q_x*p_y - q_y*p_x) - (1 + curvature(s)*q_x)*(root + a_s(qs, s))
-    root = sqrt(P_s**2 - P_x**2 - P_y**2 - 1/(beta*gamma)**2)
-    P_s = p_s + 1/beta - scalar(qs, s)
-    P_x = p_x - a_x(qs, s)
-    P_y = p_y - a_y(qs, s)
 
     Parameters
     ----------

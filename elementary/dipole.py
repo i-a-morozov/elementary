@@ -90,7 +90,8 @@ def dipole_factory(exact:bool=False,
                               final=final)
     def dipole(qsps, length, angle, *args):
         r = jax.numpy.abs(length)/angle
-        return element(qsps, length, 0.0, r, *args)
+        start = jax.numpy.zeros_like(length)
+        return element(qsps, length, start, r, *args)
     return dipole
 
 

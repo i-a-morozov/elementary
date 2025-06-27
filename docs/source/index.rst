@@ -1,7 +1,56 @@
 Welcome to elementary's documentation!
 ===================================
 
-Generic differentiable accelerator elements modeling in JAX
+Generic differentiable accelerator elements modeling in JAX.
+Single particle hamiltonian function:
+
+.. math::
+
+   H(q_x, q_y, q_s, p_x, p_y, p_s; s) = p_s/\beta - t(s)(q_x p_y - q_y p_x) - (1 + h(s) q_x) (\sqrt{(p_s + 1/beta - \varphi(qs, s))^2 - (p_x - a_x(qs, s))^2 - (p_y - a_y(qs, s))^2 - 1/(\beta \gamma)^2} - a_s)
+
+where :math:`\beta` and :math:`\gamma` are the relativistic factors, :math:`h(s)` is the reference trajectory curvature and :math:`t(s)` is the reference trajectory torsion, :math:`a_x(qs, s)`, :math:`a_y(qs, s)` and :math:`a_s(qs, s)` are the scaled vector potential components, and :math:`\varphi(qs, s)` is the scaled scalar potential.
+Additionaly, longitudinal coordinate and momentum are given by:
+
+.. math::
+   q_s = \frac{s}{\beta} - c t
+   p_s = \frac{E}{c P} - 1/beta
+
+Common predefined elements are available or you can create your own by specifying scaled potentials and reference trajectory parameters (curvature and torsion).
+All but vector potentials arguments are optional for hamiltonian and element construction.
+Vector and scalar potentials are assumed to have matching signatures.
+
+.. code-block:: python
+   def vector(qs:Array, s:Array, *args:Array) -> tuple[Array, Array, Array]:
+      q_x, q_y, q_s = qs
+      ...
+
+   def scalar(qs:Array, s:Array, *args:Array) -> Array:
+      q_x, q_y, q_s = qs
+      ...
+
+This is also the case for curvature and torsion functions.
+Note, same extra arguments as in vector and scalar functions should be passed.
+
+.. code-block:: python
+   def curvature(s:Array, *args:Array) -> Array:
+      ...
+
+   def torsion(s:Array, *args:Array) -> Array:
+      ...
+
+The resulting hamiltonian and element signatures are:
+
+.. code-block:: python
+   def hamiltonian(qs: Array, ps: Array, s: Array, *args: Array) -> Array:
+      q_x, q_y, q_s = qs
+      p_x, p_y, p_s = ps
+      ...
+
+   def element(qsps:Array, length:Array, start:Array, *args:Array) -> Array:
+      qs, ps = jax.numpy.reshape(qsps, (2, -1))
+      q_x, q_y, q_s = qs
+      p_x, p_y, p_s = ps
+      ...
 
 .. toctree::
    :caption: Examples:
