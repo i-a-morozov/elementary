@@ -8,8 +8,37 @@ Utils module
 from os import system
 from pathlib import Path
 
+from math import factorial
+
 import jax
 from jax import Array
+
+CL:float = 299792458.0
+ME:float = 0.51099895069
+MP:float = 938.27208943
+
+def beta(gamma:float) -> float:
+    """
+    Compute relativistic beta
+
+    """
+    return (1 - 1/gamma**2)**0.5
+
+
+def gamma(beta:float) -> float:
+    """
+    Compute relativistic gamma
+
+    """
+    return 1/(1 - beta**2)**0.5
+
+
+def rigidity(beta:float, gamma:float, mass:float, charge:int=1) -> float:
+    """
+    Compute magnetic rigidity (MeV/c)
+
+    """
+    return beta*gamma*mass/charge
 
 
 def ptc(qsps:Array,
@@ -91,17 +120,18 @@ def ptc(qsps:Array,
     return jax.numpy.asarray([float(x) for x in (q_x, q_y, q_s, p_x, p_y, p_s)])
 
 
-def beta(gamma:float) -> float:
+def bessel(x:Array, n:int=0) -> Array:
     """
-    Compute relativistic beta
+    Bessel function (series approximation for small argument upto order 10)
 
     """
-    return (1 - 1/gamma**2)**0.5
-
-
-def gamma(beta:float) -> float:
-    """
-    Compute relativistic gamma
-
-    """
-    return 1/(1 - beta**2)**0.5
+    if n == 0:
+        return 1 - x**2/4 + x**4/64 - x**6/2304 + x**8/147456 - x**10/14745600
+    return x**n/2**n*(
+        1/factorial(n) -
+        1/factorial(n + 1)*x**2/4 +
+        1/factorial(n + 2)*x**4/32 -
+        1/factorial(n + 3)*x**6/384 +
+        1/factorial(n + 4)*x**8/6144 -
+        1/factorial(n + 5)*x**10/122880
+    )
