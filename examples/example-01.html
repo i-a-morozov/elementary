@@ -135,8 +135,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this example non-autonomous hamiltonial is integrated using midpoint and tao integrators</span>
-<span class="c1"># For explicitly defined hamiltonian function and factory generated one</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this example non-autonomous hamiltonial is integrated</span>
 </pre></div>
 </div>
 </div>
@@ -149,7 +148,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">Array</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">jit</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">vmap</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">jacrev</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">elementary</span><span class="w"> </span><span class="kn">import</span> <span class="n">fold</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">elementary</span><span class="w"> </span><span class="kn">import</span> <span class="n">nest</span>
@@ -305,7 +304,7 @@
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define non-autonomous and extended hamiltonian (factory)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">vector</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">kn</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">vector</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">kn</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">]:</span>
     <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
     <span class="n">a_x</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">a_s</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">qs</span><span class="p">)</span>
     <span class="n">a_s</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">kn</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">q_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">q_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -399,7 +398,7 @@
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diffirentiability (initial condition)</span>
 
-<span class="n">jax</span><span class="o">.</span><span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
+<span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -425,7 +424,7 @@ Array([[ 2.733638829123e-01, -5.073806420139e-06,  0.000000000000e+00,  8.507003
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diffirentiability (parameter)</span>
 
-<span class="n">jax</span><span class="o">.</span><span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">argnums</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
+<span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">argnums</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

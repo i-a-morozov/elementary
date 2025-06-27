@@ -124,11 +124,11 @@
            <div itemprop="articleBody">
              
   <h1>Source code for elementary.hamiltonian</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Hamiltonian</span>
 <span class="sd">-----------</span>
 
-<span class="sd">Generic single particle Hamiltonian factory</span>
+<span class="sd">Generic single particle accelerator Hamiltonian factory</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
@@ -148,13 +148,6 @@
                         <span class="n">gamma</span><span class="p">:</span><span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Array</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generic single particle Hamiltonian factory</span>
-
-<span class="sd">    H = H(qs, ps; s) = H(q_x, q_y, q_s, p_x, p_y, p_s; s)</span>
-<span class="sd">    H = p_s/beta - torsion(s)*(q_x*p_y - q_y*p_x) - (1 + curvature(s)*q_x)*(root + a_s(qs, s))</span>
-<span class="sd">    root = sqrt(P_s**2 - P_x**2 - P_y**2 - 1/(beta*gamma)**2)</span>
-<span class="sd">    P_s = p_s + 1/beta - scalar(qs, s)</span>
-<span class="sd">    P_x = p_x - a_x(qs, s)</span>
-<span class="sd">    P_y = p_y - a_y(qs, s)</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

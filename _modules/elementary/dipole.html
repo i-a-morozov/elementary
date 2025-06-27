@@ -218,7 +218,8 @@
                               <span class="n">final</span><span class="o">=</span><span class="n">final</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">dipole</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">length</span><span class="p">)</span><span class="o">/</span><span class="n">angle</span>
-        <span class="k">return</span> <span class="n">element</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">element</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">dipole</span></div>
 
 

@@ -129,7 +129,21 @@
              
   <section id="welcome-to-elementary-s-documentation">
 <h1>Welcome to elementary’s documentation!<a class="headerlink" href="#welcome-to-elementary-s-documentation" title="Link to this heading"></a></h1>
-<p>Generic differentiable accelerator elements modeling in JAX</p>
+<p>Generic differentiable accelerator elements modeling in JAX.
+Single particle hamiltonian function:</p>
+<div class="math notranslate nohighlight">
+\[H(q_x, q_y, q_s, p_x, p_y, p_s; s) = p_s/\beta - t(s)(q_x p_y - q_y p_x) - (1 + h(s) q_x) (\sqrt{(p_s + 1/beta - \varphi(qs, s))^2 - (p_x - a_x(qs, s))^2 - (p_y - a_y(qs, s))^2 - 1/(\beta \gamma)^2} - a_s)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span> are the relativistic factors, <span class="math notranslate nohighlight">\(h(s)\)</span> is the reference trajectory curvature and <span class="math notranslate nohighlight">\(t(s)\)</span> is the reference trajectory torsion, <span class="math notranslate nohighlight">\(a_x(qs, s)\)</span>, <span class="math notranslate nohighlight">\(a_y(qs, s)\)</span> and <span class="math notranslate nohighlight">\(a_s(qs, s)\)</span> are the scaled vector potential components, and <span class="math notranslate nohighlight">\(\varphi(qs, s)\)</span> is the scaled scalar potential.
+Additionaly, longitudinal coordinate and momentum are given by:</p>
+<div class="math notranslate nohighlight">
+\[q_s = \frac{s}{\beta} - c t
+p_s = \frac{E}{c P} - 1/beta\]</div>
+<p>Common predefined elements are available or you can create your own by specifying scaled potentials and reference trajectory parameters (curvature and torsion).
+All but vector potentials arguments are optional for hamiltonian and element construction.
+Vector and scalar potentials are assumed to have matching signatures.</p>
+<p>This is also the case for curvature and torsion functions.
+Note, same extra arguments as in vector and scalar functions should be passed.</p>
+<p>The resulting hamiltonian and element signatures are:</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
