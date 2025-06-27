@@ -132,7 +132,9 @@
 <p>Generic differentiable accelerator elements modeling in JAX.
 Single particle hamiltonian function:</p>
 <div class="math notranslate nohighlight">
-\[H(q_x, q_y, q_s, p_x, p_y, p_s; s) = p_s/\beta - t(s)(q_x p_y - q_y p_x) - (1 + h(s) q_x) (\sqrt{(p_s + 1/beta - \varphi(qs, s))^2 - (p_x - a_x(qs, s))^2 - (p_y - a_y(qs, s))^2 - 1/(\beta \gamma)^2} - a_s)\]</div>
+\[\begin{split}H = H(q_x, q_y, q_s, p_x, p_y, p_s; s)
+H = p_s/\beta - t(s)(q_x p_y - q_y p_x) - \\
+(1 + h(s) q_x) (\sqrt{(p_s + 1/beta - \varphi(qs, s))^2 - (p_x - a_x(qs, s))^2 - (p_y - a_y(qs, s))^2 - 1/(\beta \gamma)^2} - a_s)\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span> are the relativistic factors, <span class="math notranslate nohighlight">\(h(s)\)</span> is the reference trajectory curvature and <span class="math notranslate nohighlight">\(t(s)\)</span> is the reference trajectory torsion, <span class="math notranslate nohighlight">\(a_x(qs, s)\)</span>, <span class="math notranslate nohighlight">\(a_y(qs, s)\)</span> and <span class="math notranslate nohighlight">\(a_s(qs, s)\)</span> are the scaled vector potential components, and <span class="math notranslate nohighlight">\(\varphi(qs, s)\)</span> is the scaled scalar potential.
 Additionaly, longitudinal coordinate and momentum are given by:</p>
 <div class="math notranslate nohighlight">
