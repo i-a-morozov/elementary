@@ -36,7 +36,7 @@ def dipole_factory(exact:bool=True,
     gamma: Optional[float]
         relativistic gamma
     driver: Optional[Callable[..., Array]]
-        symplectic integrator (midpoint)
+        symplectic integrator (tao)
     settings: Optional[dict]
         configuration settings for integrator
     order: int, default=0
