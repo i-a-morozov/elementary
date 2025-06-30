@@ -43,7 +43,7 @@ templates_path = []
 exclude_patterns = []
 
 
-mathjax3_config = {'chtml': {'displayAlign': 'left', 'displayIndent': '2em'}}
+# mathjax3_config = {'chtml': {'displayAlign': 'left', 'displayIndent': '2em'}}
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

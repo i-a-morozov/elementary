@@ -8,14 +8,14 @@ Single particle hamiltonian function:
    :nowrap:
 
    \begin{eqnarray}
-   & H = H(q_x, q_y, q_s, p_x, p_y, p_s; s) \\
-   & H = p_s/\beta - t(s)(q_x p_y - q_y p_x) - (1 + h(s) q_x) (\sqrt{P_s^2 - P_x^2 - P_y^2 - 1/(\beta \gamma)^2} - a_s)  \\
-   & P_s = p_s + 1/\beta - \varphi(q_x, q_y, q_s, s)  \\
-   & P_x = p_x - a_x(q_x, q_y, q_s, s)  \\
-   & P_y  p_y - a_y(q_x, q_y, q_s, s)
+   & H(q_x, q_y, q_s, p_x, p_y, p_s; s) = \frac{p_s}{\beta} - t(s)(q_x p_y - q_y p_x) - (1 + h(s) q_x) \left(\sqrt{P_s^2 - P_x^2 - P_y^2 - \frac{1}{\beta^2 \gamma^2}} + a_s(q_x, q_y, q_s; s)\right)  \\
+   & \\
+   & P_s = p_s + 1/\beta - \varphi(q_x, q_y, q_s; s)  \\
+   & P_x = p_x - a_x(q_x, q_y, q_s; s)  \\
+   & P_y = p_y - a_y(q_x, q_y, q_s; s)
    \end{eqnarray}
 
-where :math:`\beta` and :math:`\gamma` are the relativistic factors, :math:`h(s)` is the reference trajectory curvature and :math:`t(s)` is the reference trajectory torsion, :math:`a_x(qs, s)`, :math:`a_y(qs, s)` and :math:`a_s(qs, s)` are the scaled vector potential components, and :math:`\varphi(qs, s)` is the scaled scalar potential.
+where :math:`\beta` and :math:`\gamma` are the relativistic factors, :math:`h(s)` is the reference trajectory curvature and :math:`t(s)` is the reference trajectory torsion, :math:`a_x(q_x, q_y, q_s; s)`, :math:`a_y(q_x, q_y, q_s; s)` and :math:`a_s(q_x, q_y, q_s; s)` are the scaled vector potential components, and :math:`\varphi(q_x, q_y, q_s; s)` is the scaled scalar potential.
 Additionaly, longitudinal coordinate and momentum are given by:
 
 .. math::
@@ -23,7 +23,7 @@ Additionaly, longitudinal coordinate and momentum are given by:
 
    \begin{eqnarray}
    & q_s = \frac{s}{\beta} - c t \\
-   & p_s = \frac{E}{c P} - 1/beta
+   & p_s = \frac{E}{c P} - \frac{1}{\beta}
    \end{eqnarray}
 
 Common predefined elements are available or you can create your own by specifying scaled potentials and reference trajectory parameters (curvature and torsion).
