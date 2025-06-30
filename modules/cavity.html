@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Multipole &mdash; elementary  documentation</title>
+  <title>Cavity &mdash; elementary  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -20,8 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Dipole" href="dipole.html" />
-    <link rel="prev" title="Octupole" href="octupole.html" /> 
+    <link rel="prev" title="Alignment" href="alignment.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -86,9 +85,9 @@
 <li class="toctree-l1"><a class="reference internal" href="octupole.html">Octupole</a></li>
 <li class="toctree-l1"><a class="reference internal" href="octupole.html#elementary.octupole.octupole_factory"><code class="docutils literal notranslate"><span class="pre">octupole_factory()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="octupole.html#elementary.octupole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Multipole</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#elementary.multipole.multipole_factory"><code class="docutils literal notranslate"><span class="pre">multipole_factory()</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="#elementary.multipole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="multipole.html">Multipole</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multipole.html#elementary.multipole.multipole_factory"><code class="docutils literal notranslate"><span class="pre">multipole_factory()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="multipole.html#elementary.multipole.vector"><code class="docutils literal notranslate"><span class="pre">vector()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="dipole.html">Dipole</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dipole.html#elementary.dipole.curvature"><code class="docutils literal notranslate"><span class="pre">curvature()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="dipole.html#elementary.dipole.dipole_factory"><code class="docutils literal notranslate"><span class="pre">dipole_factory()</span></code></a></li>
@@ -105,8 +104,8 @@
 <li class="toctree-l1"><a class="reference internal" href="alignment.html#elementary.alignment.tx"><code class="docutils literal notranslate"><span class="pre">tx()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="alignment.html#elementary.alignment.ty"><code class="docutils literal notranslate"><span class="pre">ty()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="alignment.html#elementary.alignment.tz"><code class="docutils literal notranslate"><span class="pre">tz()</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="cavity.html">Cavity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cavity.html#elementary.cavity.cavity_factory"><code class="docutils literal notranslate"><span class="pre">cavity_factory()</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cavity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#elementary.cavity.cavity_factory"><code class="docutils literal notranslate"><span class="pre">cavity_factory()</span></code></a></li>
 </ul>
 
         </div>
@@ -123,9 +122,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Multipole</li>
+      <li class="breadcrumb-item active">Cavity</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/modules/multipole.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/modules/cavity.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -133,17 +132,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="multipole">
-<span id="module-elementary.multipole"></span><h1>Multipole<a class="headerlink" href="#multipole" title="Link to this heading"></a></h1>
-<p>Multipole element factory</p>
+  <section id="cavity">
+<span id="module-elementary.cavity"></span><h1>Cavity<a class="headerlink" href="#cavity" title="Link to this heading"></a></h1>
+<p>Cavity element factory</p>
 </section>
 <dl class="py function">
-<dt class="sig sig-object py" id="elementary.multipole.multipole_factory">
-<span class="sig-prename descclassname"><span class="pre">elementary.multipole.</span></span><span class="sig-name descname"><span class="pre">multipole_factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">driver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/elementary/multipole.html#multipole_factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elementary.multipole.multipole_factory" title="Link to this definition"></a></dt>
-<dd><p>Multipole element transfer map</p>
+<dt class="sig sig-object py" id="elementary.cavity.cavity_factory">
+<span class="sig-prename descclassname"><span class="pre">elementary.cavity.</span></span><span class="sig-name descname"><span class="pre">cavity_factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rigidity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'kick'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'main'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'kick'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">driver</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-15</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/elementary/cavity.html#cavity_factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elementary.cavity.cavity_factory" title="Link to this definition"></a></dt>
+<dd><p>Cavity element transfer map</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>rigidity</strong> (<em>float</em>) – magnetic rigidity</p></li>
+<li><p><strong>kind</strong> (<em>Literal</em><em>[</em><em>'kick'</em><em>, </em><em>'main'</em><em>]</em><em>, </em><em>default='kick'</em>) – cavity type</p></li>
 <li><p><strong>beta</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em>) – relativistic beta</p></li>
 <li><p><strong>gamma</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em>) – relativistic gamma</p></li>
 <li><p><strong>driver</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>[</em><em>...</em><em>, </em><em>Array</em><em>]</em><em>]</em>) – symplectic integrator (midpoint)</p></li>
@@ -151,6 +152,7 @@
 <li><p><strong>order</strong> (<em>int</em><em>, </em><em>default=0</em>) – yoshida composition order</p></li>
 <li><p><strong>iterations</strong> (<em>int</em><em>, </em><em>default=1</em>) – number of integration</p></li>
 <li><p><strong>final</strong> (<em>bool</em><em>, </em><em>default=True</em>) – flag to return only the final state</p></li>
+<li><p><strong>epsilon</strong> (<em>float</em><em>, </em><em>default=1.0E-15</em>) – epsilon</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -159,19 +161,12 @@
 </dl>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="elementary.multipole.vector">
-<span class="sig-prename descclassname"><span class="pre">elementary.multipole.</span></span><span class="sig-name descname"><span class="pre">vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kq_n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kq_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ks_n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ks_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ko_n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ko_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">jax.Array</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/elementary/multipole.html#vector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#elementary.multipole.vector" title="Link to this definition"></a></dt>
-<dd><p>Vector potential</p>
-</dd></dl>
-
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="octupole.html" class="btn btn-neutral float-left" title="Octupole" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="dipole.html" class="btn btn-neutral float-right" title="Dipole" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="alignment.html" class="btn btn-neutral float-left" title="Alignment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

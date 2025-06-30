@@ -81,6 +81,8 @@ The resulting hamiltonian and element signatures are:
    examples/example-08.ipynb
    examples/example-09.ipynb
    examples/example-10.ipynb
+   examples/example-11.ipynb
+   examples/example-12.ipynb
 
 .. toctree::
    :caption: API:
@@ -96,6 +98,7 @@ The resulting hamiltonian and element signatures are:
    modules/multipole.rst
    modules/dipole.rst
    modules/alignment.rst
+   modules/cavity.rst
 
 Indices and tables
 ==================
