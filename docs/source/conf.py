@@ -51,6 +51,10 @@ exclude_patterns = []
 html_theme = 'sphinx_rtd_theme'
 #html_logo = '../pics/logo.png'
 html_static_path = []
+html_theme_options = {
+    'body_max_width' : 'none',
+    'page_width': 'auto',
+}
 
 # -- Autodoc Configuration ---------------------------------------------------
 
