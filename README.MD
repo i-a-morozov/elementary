@@ -2,6 +2,7 @@
 
 Generic differentiable accelerator elements modeling in JAX
 
+[![DOI](https://zenodo.org/badge/1005087587.svg)](https://doi.org/10.5281/zenodo.15771384)
 
 # Install
 
