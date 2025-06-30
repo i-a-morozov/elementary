@@ -1,46 +1,85 @@
 {
  "cells": [
   {
-   "attachments": {},
    "cell_type": "markdown",
-   "id": "556562f3-8ece-4517-8c93-ee5e2fc29131",
+   "id": "4fe6c1e7-9391-4d0a-b890-3691d6c5e905",
    "metadata": {},
    "source": [
-    "# Example-03: Drift element factory"
+    "# Example-03: Element factory"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d0d922e1-4ca4-4efc-9dbc-f91c0dfefc99",
+   "metadata": {},
+   "source": [
+    "In this example procedure for constructing generic accelerator element using `elementary.element_factory` is illustrated.\n",
+    "With generic accelerator hamiltonian:\n",
+    "$\n",
+    "\\begin{align}\n",
+    "& H(q_x, q_y, q_s, p_x, p_y, p_s; s) = \\frac{p_s}{\\beta} - t(s)(q_x p_y - q_y p_x) - (1 + h(s) q_x) \\left(\\sqrt{P_s^2 - P_x^2 - P_y^2 - \\frac{1}{\\beta^2 \\gamma^2}} + a_s(q_x, q_y, q_s; s)\\right)  \\\\\n",
+    "& \\\\\n",
+    "& P_s = p_s + 1/\\beta - \\varphi(q_x, q_y, q_s; s)  \\\\\n",
+    "& P_x = p_x - a_x(q_x, q_y, q_s; s)  \\\\\n",
+    "& P_y = p_y - a_y(q_x, q_y, q_s; s)\n",
+    "\\end{align}\n",
+    "$\n",
+    "\n",
+    "where $\\beta$ and $\\gamma$ are the relativistic factors, $h(s)$ is the reference trajectory curvature and $t(s)$ is the reference trajectory torsion, $a_x(q_x, q_y, q_s; s)$, $a_y(q_x, q_y, q_s; s)$ and $a_s(q_x, q_y, q_s; s)$ are the scaled vector potential components, and $\\varphi(q_x, q_y, q_s; s)$ is the scaled scalar potential. Additionaly, longitudinal coordinate and momentum are given by:\n",
+    "\n",
+    "$\n",
+    "\\begin{align}\n",
+    "& q_s = \\frac{s}{\\beta} - c t \\\\\n",
+    "& p_s = \\frac{E}{c P} - \\frac{1}{\\beta}\n",
+    "\\end{align}\n",
+    "$\n",
+    "\n",
+    "Corresponding element can be constructed by passing hamiltonian function or other parameters (e. g. vector potential). The returned element has the following signature:\n",
+    "\n",
+    "```python\n",
+    "def element(qsps:Array, length:Array, start:Array, *args:Array) -> Array:\n",
+    "  qs, ps = jax.numpy.reshape(qsps, (2, -1))\n",
+    "  q_x, q_y, q_s = qs\n",
+    "  p_x, p_y, p_s = ps\n",
+    "  ...\n",
+    "```\n",
+    "\n",
+    "The following explicit hamiltonian is used as an example\n",
+    "\n",
+    "$ H = p_s - \\left(\\sqrt{(1 + p_s)^2 - p_x^2 - p_y^2} + a_s\\right) $ with\n",
+    "$(a_x, a_y, a_s) = \\left(0, 0, \\frac{1}{2} k_n \\left(1 + \\sin\\left(2 \\pi \\frac{s}{l}\\right)\\right) \\left(q_x^2 - q_y^2\\right)\\right)$"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "6d032ad2-c569-41b9-a29c-471a4d08f85a",
+   "id": "bd70d754-d8b3-48c0-89e4-cc7b8babd054",
    "metadata": {},
    "outputs": [],
    "source": [
-    "# In this example drift factory is illustrated"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 2,
-   "id": "244ec679-fbed-4498-bbf5-e654c851e0eb",
-   "metadata": {},
-   "outputs": [],
-   "source": [
+    "# Import \n",
+    "\n",
     "import jax\n",
+    "from jax import Array\n",
     "from jax import jit\n",
     "from jax import jacrev\n",
     "\n",
-    "from elementary.util import ptc\n",
-    "from elementary.util import beta\n",
-    "from elementary.drift import drift_factory\n",
+    "from elementary import fold\n",
+    "from elementary import nest\n",
+    "from elementary import tao\n",
+    "from elementary import sequence\n",
+    "\n",
+    "from elementary.hamiltonian import hamiltonian_factory\n",
+    "from elementary.hamiltonian import autonomize\n",
+    "from elementary.element import element_factory\n",
     "\n",
     "jax.numpy.set_printoptions(linewidth=256, precision=12)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
-   "id": "903fc66f-330f-4f86-8210-daa8e647c440",
+   "execution_count": 2,
+   "id": "165cc7f5-e651-4bab-a93b-2ae162a79605",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -51,8 +90,8 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
-   "id": "00273e8a-0af3-4259-b4fe-c2d49ba2e83c",
+   "execution_count": 3,
+   "id": "8ec95cb7-c336-4914-a1d9-a9ae0b5ee4e2",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -64,87 +103,194 @@
   },
   {
    "cell_type": "code",
+   "execution_count": 4,
+   "id": "29979934-46e9-4aa1-a878-9030245fa738",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Set parameters (initial independent parameter value, integration step length and quadrupole amplitude)\n",
+    "\n",
+    "si = jax.numpy.float64(0.5)\n",
+    "ds = jax.numpy.float64(0.01)\n",
+    "\n",
+    "l = jax.numpy.float64(1.0)\n",
+    "kn = jax.numpy.float64(1.0)"
+   ]
+  },
+  {
+   "cell_type": "code",
    "execution_count": 5,
-   "id": "83eac826-dd08-46c6-ba9b-949f83aa7819",
+   "id": "578e026f-fbab-46d6-b86a-9930249acb3f",
    "metadata": {},
    "outputs": [],
    "source": [
     "# Set initial condition\n",
     "\n",
-    "(q_x, q_y, q_s) = qs = jax.numpy.array([0.0, 0.0, 0.001])\n",
-    "(p_x, p_y, p_s) = ps = jax.numpy.array([0.001, 0.001, -0.0001])\n",
-    "x = jax.numpy.hstack([qs, ps])"
+    "qs = jax.numpy.array([0.001, -0.005, 0.0])\n",
+    "ps = jax.numpy.array([0.005, -0.001, 0.0001])\n",
+    "\n",
+    "qsps = jax.numpy.hstack([qs, ps])"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "01a2e5f8-94c3-4a85-a54c-348e0b9fa02f",
+   "id": "6442e7a3-b90f-49bc-8617-2ab10869ffdf",
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Define generic drift element\n",
+    "# Define non-autonomous and extended hamiltonian (factory)\n",
     "\n",
-    "gamma = 10**4\n",
-    "element = jit(drift_factory(beta=beta(gamma), gamma=gamma))"
+    "def vector(qs:Array, s:Array, l:Array, kn:Array, *args:Array) -> tuple[Array, Array, Array]:\n",
+    "    q_x, q_y, q_s = qs\n",
+    "    a_x, a_y, a_s = jax.numpy.zeros_like(qs)\n",
+    "    a_s = 1/2*kn*(1 + jax.numpy.sin(2*jax.numpy.pi*s/l))*(q_x**2 - q_y**2)\n",
+    "    return a_x, a_y, a_s\n",
+    "\n",
+    "def scalar(qs:Array, s:Array, l:Array, kn:Array, *args:Array) -> Array:\n",
+    "    q_x, q_y, q_s = qs\n",
+    "    return jax.numpy.zeros_like(s)\n",
+    "\n",
+    "hamiltonian = hamiltonian_factory(vector, scalar)\n",
+    "extended = autonomize(hamiltonian)"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 7,
-   "id": "10e8ce7b-0bc0-480b-9f73-0f5c5183eb96",
+   "id": "5fde7cee-13e4-4c8b-9967-bd4353881d19",
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "[ 0.00100010101   0.00100010101   0.000998999797  0.001           0.001          -0.0001        ]\n",
-      "[ 0.00100010101   0.00100010101   0.000998999797  0.001           0.001          -0.0001        ]\n",
-      "True\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
-    "# Compare with PTC\n",
+    "# Set extended initial condition\n",
     "\n",
-    "print(res := element(x, 1.0))\n",
-    "print(ref := ptc(x, 'drift', {'l': 1.0}, gamma=gamma))\n",
-    "print(jax.numpy.allclose(res, ref))"
+    "Qs = jax.numpy.concat([qs, si.reshape(-1)])\n",
+    "Ps = jax.numpy.concat([ps, -hamiltonian(qs, ps, si, l, kn).reshape(-1)])\n",
+    "QsPs = jax.numpy.hstack([Qs, Ps])"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 8,
-   "id": "7c555c8f-19b8-47ad-a025-ef37c5744b15",
+   "id": "8b9df1ad-8628-48ab-aee7-64d0e2cedd47",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Set tao integration step\n",
+    "\n",
+    "integrator = jit(fold(sequence(0, 2**1, [tao(extended)], merge=False)))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "f4a89bd2-0985-4129-9422-c8b7d205c3fb",
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "[[ 1.000000000000e+00  0.000000000000e+00  0.000000000000e+00  1.000102010606e+00  1.000303061531e-06 -1.000203036215e-03]\n",
-      " [ 0.000000000000e+00  1.000000000000e+00  0.000000000000e+00  1.000303061532e-06  1.000102010606e+00 -1.000203036215e-03]\n",
-      " [ 0.000000000000e+00  0.000000000000e+00  1.000000000000e+00 -1.000203036215e-03 -1.000203036215e-03  2.010609153797e-06]\n",
-      " [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  1.000000000000e+00  2.153530860291e-16  4.365802117678e-20]\n",
-      " [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00 -5.759110665868e-17  1.000000000000e+00 -1.666666809949e-20]\n",
-      " [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00 -1.030790028879e-17 -1.902883163971e-16  1.000000000000e+00]]\n",
-      "\n",
-      "[ 1.000101010303e-03  1.000101010303e-03 -1.000202535512e-06 -4.365361716197e-20  1.638774596422e-20 -2.007338881283e-19]\n",
-      "\n"
+      "[ 7.235126271969e-03 -4.257064841463e-03 -2.199863474965e-05  1.500000000000e+00  9.664543767678e-03  3.998219958148e-03  1.000000000000e-04  9.999624216145e-01]\n"
      ]
     }
    ],
    "source": [
-    "# Differentiability\n",
+    "# Set and compile element\n",
     "\n",
-    "length = jax.numpy.float64(1.0)\n",
+    "element = jit(nest(int(l/ds), integrator))\n",
+    "out = element(QsPs, ds, si, l, kn)\n",
+    "print(out)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "affaa1b1-3022-4f60-9c2a-26a5e2041d6a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[ 7.235126271969e-03 -4.257064841463e-03 -2.199863474965e-05  9.664543767678e-03  3.998219958148e-03  1.000000000000e-04]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Generate element from hamiltonian\n",
+    "# Note, phase space extension is handled internaly\n",
     "\n",
-    "print(jacrev(element)(x, length))\n",
-    "print()\n",
+    "element = element_factory(vector=None, \n",
+    "                          scalar=None, \n",
+    "                          curvature=None, \n",
+    "                          torsion=None, \n",
+    "                          hamiltonian=hamiltonian, \n",
+    "                          driver=tao, \n",
+    "                          order=2**1, \n",
+    "                          iterations=int(l/ds), \n",
+    "                          autonomous=False)\n",
     "\n",
-    "print(jacrev(element, -1)(x, length))\n",
-    "print()"
+    "element = jit(element)\n",
+    "\n",
+    "out = element(qsps, l, si, l, kn)\n",
+    "print(out)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "912af4a8-22d2-44e5-8182-7850c768e640",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[ 7.235126271969e-03 -4.257064841463e-03 -2.199863474965e-05  9.664543767678e-03  3.998219958148e-03  1.000000000000e-04]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Generate element from potential\n",
+    "\n",
+    "element = element_factory(vector=vector, \n",
+    "                          scalar=None, \n",
+    "                          curvature=None, \n",
+    "                          torsion=None, \n",
+    "                          hamiltonian=None, \n",
+    "                          driver=tao, \n",
+    "                          order=2**1, \n",
+    "                          iterations=int(l/ds), \n",
+    "                          autonomous=False)\n",
+    "\n",
+    "element = jit(element)\n",
+    "\n",
+    "out = element(qsps, l, si, l, kn)\n",
+    "print(out)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "cc9a698d-7d59-46e6-8764-8c2a535d5bdc",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1.17 ms ± 15 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%timeit\n",
+    "\n",
+    "# Note, first call also performs compilation\n",
+    "# Subsequent calls use compiled function, but operations like map and jacobian will trigger recompilation\n",
+    "\n",
+    "element(qsps, l, si, l, kn).block_until_ready()"
    ]
   }
  ],

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example-03: Drift element factory &mdash; elementary  documentation</title>
+  <title>Example-03: Element factory &mdash; elementary  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
@@ -18,13 +18,13 @@
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"chtml": {"displayAlign": "left", "displayIndent": "2em"}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Example-04: Quadrupole element factory" href="example-03.html" />
-    <link rel="prev" title="Example-02: Hamiltonian factory (non-autonomous integration in extended phase space)" href="example-01.html" /> 
+    <link rel="next" title="Example-04: Drift element factory" href="example-03.html" />
+    <link rel="prev" title="Example-02: Hamiltonian factory" href="example-01.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,23 +49,26 @@
               <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="example-00.html">Example-01: Functional iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-01.html">Example-02: Hamiltonian factory (non-autonomous integration in extended phase space)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Example-03: Drift element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-03.html">Example-04: Quadrupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-04.html">Example-05: Sextupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-05.html">Example-06: Octupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-06.html">Example-07: Multipole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-07.html">Example-08: Dipole element factory (body)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-08.html">Example-08: Dipole element factory (body + cylindrical multipole)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-09.html">Example-10: Alignment errors (straight layout)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-10.html">Example-11: Alignment errors (curved layout)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-01.html">Example-02: Hamiltonian factory</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example-03: Element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-03.html">Example-04: Drift element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-04.html">Example-05: Quadrupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-05.html">Example-06: Sextupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-06.html">Example-07: Octupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-07.html">Example-08: Multipole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-08.html">Example-09: Dipole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-09.html">Example-10: Dipole element factory (cylindrical multipole)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-10.html">Example-11: Alignment errors (straight layout)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules/util.html">Util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.bessel"><code class="docutils literal notranslate"><span class="pre">bessel()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.beta"><code class="docutils literal notranslate"><span class="pre">beta()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.gamma"><code class="docutils literal notranslate"><span class="pre">gamma()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.momentum"><code class="docutils literal notranslate"><span class="pre">momentum()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.ptc"><code class="docutils literal notranslate"><span class="pre">ptc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.rigidity"><code class="docutils literal notranslate"><span class="pre">rigidity()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/hamiltonian.html">Hamiltonian</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/hamiltonian.html#elementary.hamiltonian.autonomize"><code class="docutils literal notranslate"><span class="pre">autonomize()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/hamiltonian.html#elementary.hamiltonian.hamiltonian_factory"><code class="docutils literal notranslate"><span class="pre">hamiltonian_factory()</span></code></a></li>
@@ -119,7 +122,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Example-03: Drift element factory</li>
+      <li class="breadcrumb-item active">Example-03: Element factory</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/examples/example-02.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -129,34 +132,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Example-03:-Drift-element-factory">
-<h1>Example-03: Drift element factory<a class="headerlink" href="#Example-03:-Drift-element-factory" title="Link to this heading"></a></h1>
+  <section id="Example-03:-Element-factory">
+<h1>Example-03: Element factory<a class="headerlink" href="#Example-03:-Element-factory" title="Link to this heading"></a></h1>
+<p>In this example procedure for constructing generic accelerator element using <code class="docutils literal notranslate"><span class="pre">elementary.element_factory</span></code> is illustrated. With generic accelerator hamiltonian: $ <span class="math">\begin{align}
+& H(q_x, q_y, q_s, p_x, p_y, p_s; s) = \frac{p_s}{\beta} - t(s)(q_x p_y - q_y p_x) - (1 + h(s) q_x) \left(\sqrt{P_s^2 - P_x^2 - P_y^2 - \frac{1}{\beta^2 \gamma^2}} + a_s(q_x, q_y, q_s; s)\right)  \\
+& \\
+& P_s = p_s + 1/\beta - \varphi(q_x, q_y, q_s; s)  \\
+& P_x = p_x - a_x(q_x, q_y, q_s; s)  \\
+& P_y = p_y - a_y(q_x, q_y, q_s; s)
+\end{align}</span> $</p>
+<p>where <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span> are the relativistic factors, <span class="math notranslate nohighlight">\(h(s)\)</span> is the reference trajectory curvature and <span class="math notranslate nohighlight">\(t(s)\)</span> is the reference trajectory torsion, <span class="math notranslate nohighlight">\(a_x(q_x, q_y, q_s; s)\)</span>, <span class="math notranslate nohighlight">\(a_y(q_x, q_y, q_s; s)\)</span> and <span class="math notranslate nohighlight">\(a_s(q_x, q_y, q_s; s)\)</span> are the scaled vector potential components, and <span class="math notranslate nohighlight">\(\varphi(q_x, q_y, q_s; s)\)</span> is the scaled scalar potential. Additionaly, longitudinal coordinate and momentum are given by:</p>
+<p>$ <span class="math">\begin{align}
+& q_s = \frac{s}{\beta} - c t \\
+& p_s = \frac{E}{c P} - \frac{1}{\beta}
+\end{align}</span> $</p>
+<p>Corresponding element can be constructed by passing hamiltonian function or other parameters (e. g. vector potential). The returned element has the following signature:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">element</span><span class="p">(</span><span class="n">qsps</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+  <span class="n">qs</span><span class="p">,</span> <span class="n">ps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+  <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
+  <span class="n">p_x</span><span class="p">,</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">p_s</span> <span class="o">=</span> <span class="n">ps</span>
+  <span class="o">...</span>
+</pre></div>
+</div>
+<p>The following explicit hamiltonian is used as an example</p>
+<p>$ H = p_s - <span class="math">\left`(:nbsphinx-math:</span>sqrt{(1 + p_s)^2 - p_x^2 - p_y^2}` + a_s:nbsphinx-math:<cite>right</cite>) $ with <span class="math notranslate nohighlight">\((a_x, a_y, a_s) = \left(0, 0, \frac{1}{2} k_n \left(1 + \sin\left(2 \pi \frac{s}{l}\right)\right) \left(q_x^2 - q_y^2\right)\right)\)</span></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this example drift factory is illustrated</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">Array</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">jit</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">jacrev</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">elementary.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">ptc</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">elementary.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">beta</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">elementary.drift</span><span class="w"> </span><span class="kn">import</span> <span class="n">drift_factory</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">elementary</span><span class="w"> </span><span class="kn">import</span> <span class="n">fold</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">elementary</span><span class="w"> </span><span class="kn">import</span> <span class="n">nest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">elementary</span><span class="w"> </span><span class="kn">import</span> <span class="n">tao</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">elementary</span><span class="w"> </span><span class="kn">import</span> <span class="n">sequence</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">elementary.hamiltonian</span><span class="w"> </span><span class="kn">import</span> <span class="n">hamiltonian_factory</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">elementary.hamiltonian</span><span class="w"> </span><span class="kn">import</span> <span class="n">autonomize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">elementary.element</span><span class="w"> </span><span class="kn">import</span> <span class="n">element_factory</span>
 
 <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set data type</span>
@@ -166,7 +191,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set device</span>
@@ -177,14 +202,29 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set parameters (initial independent parameter value, integration step length and quadrupole amplitude)</span>
+
+<span class="n">si</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">kn</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set initial condition</span>
 
-<span class="p">(</span><span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span><span class="p">)</span> <span class="o">=</span> <span class="n">qs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">])</span>
-<span class="p">(</span><span class="n">p_x</span><span class="p">,</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">p_s</span><span class="p">)</span> <span class="o">=</span> <span class="n">ps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0001</span><span class="p">])</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">])</span>
+<span class="n">qs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.001</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.005</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">])</span>
+
+<span class="n">qsps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -192,48 +232,54 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define generic drift element</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define non-autonomous and extended hamiltonian (factory)</span>
 
-<span class="n">gamma</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">4</span>
-<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">drift_factory</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">(</span><span class="n">gamma</span><span class="p">),</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">))</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">vector</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">l</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">kn</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">]:</span>
+    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
+    <span class="n">a_x</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">a_s</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">qs</span><span class="p">)</span>
+    <span class="n">a_s</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">kn</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">s</span><span class="o">/</span><span class="n">l</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">q_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">q_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a_x</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">a_s</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">scalar</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">l</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">kn</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
+    <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">hamiltonian</span> <span class="o">=</span> <span class="n">hamiltonian_factory</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">scalar</span><span class="p">)</span>
+<span class="n">extended</span> <span class="o">=</span> <span class="n">autonomize</span><span class="p">(</span><span class="n">hamiltonian</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare with PTC</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set extended initial condition</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span> <span class="o">:=</span> <span class="n">element</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ref</span> <span class="o">:=</span> <span class="n">ptc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;drift&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">ref</span><span class="p">))</span>
+<span class="n">Qs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">qs</span><span class="p">,</span> <span class="n">si</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
+<span class="n">Ps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ps</span><span class="p">,</span> <span class="o">-</span><span class="n">hamiltonian</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
+<span class="n">QsPs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Qs</span><span class="p">,</span> <span class="n">Ps</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[ 0.00100010101   0.00100010101   0.000998999797  0.001           0.001          -0.0001        ]
-[ 0.00100010101   0.00100010101   0.000998999797  0.001           0.001          -0.0001        ]
-True
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Differentiability</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set tao integration step</span>
 
-<span class="n">length</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">integrator</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">fold</span><span class="p">(</span><span class="n">sequence</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="n">tao</span><span class="p">(</span><span class="n">extended</span><span class="p">)],</span> <span class="n">merge</span><span class="o">=</span><span class="kc">False</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set and compile element</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">)(</span><span class="n">x</span><span class="p">,</span> <span class="n">length</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">,</span> <span class="n">length</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">()</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">nest</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="o">/</span><span class="n">ds</span><span class="p">),</span> <span class="n">integrator</span><span class="p">))</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="n">QsPs</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -242,15 +288,91 @@ True
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[ 1.000000000000e+00  0.000000000000e+00  0.000000000000e+00  1.000102010606e+00  1.000303061531e-06 -1.000203036215e-03]
- [ 0.000000000000e+00  1.000000000000e+00  0.000000000000e+00  1.000303061532e-06  1.000102010606e+00 -1.000203036215e-03]
- [ 0.000000000000e+00  0.000000000000e+00  1.000000000000e+00 -1.000203036215e-03 -1.000203036215e-03  2.010609153797e-06]
- [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  1.000000000000e+00  2.153530860291e-16  4.365802117678e-20]
- [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00 -5.759110665868e-17  1.000000000000e+00 -1.666666809949e-20]
- [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00 -1.030790028879e-17 -1.902883163971e-16  1.000000000000e+00]]
+[ 7.235126271969e-03 -4.257064841463e-03 -2.199863474965e-05  1.500000000000e+00  9.664543767678e-03  3.998219958148e-03  1.000000000000e-04  9.999624216145e-01]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate element from hamiltonian</span>
+<span class="c1"># Note, phase space extension is handled internaly</span>
 
-[ 1.000101010303e-03  1.000101010303e-03 -1.000202535512e-06 -4.365361716197e-20  1.638774596422e-20 -2.007338881283e-19]
+<span class="n">element</span> <span class="o">=</span> <span class="n">element_factory</span><span class="p">(</span><span class="n">vector</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">scalar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">curvature</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">torsion</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">hamiltonian</span><span class="o">=</span><span class="n">hamiltonian</span><span class="p">,</span>
+                          <span class="n">driver</span><span class="o">=</span><span class="n">tao</span><span class="p">,</span>
+                          <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span>
+                          <span class="n">iterations</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="o">/</span><span class="n">ds</span><span class="p">),</span>
+                          <span class="n">autonomous</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
+<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+<span class="n">out</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[ 7.235126271969e-03 -4.257064841463e-03 -2.199863474965e-05  9.664543767678e-03  3.998219958148e-03  1.000000000000e-04]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate element from potential</span>
+
+<span class="n">element</span> <span class="o">=</span> <span class="n">element_factory</span><span class="p">(</span><span class="n">vector</span><span class="o">=</span><span class="n">vector</span><span class="p">,</span>
+                          <span class="n">scalar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">curvature</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">torsion</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">hamiltonian</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">driver</span><span class="o">=</span><span class="n">tao</span><span class="p">,</span>
+                          <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span>
+                          <span class="n">iterations</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="o">/</span><span class="n">ds</span><span class="p">),</span>
+                          <span class="n">autonomous</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+<span class="n">out</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[ 7.235126271969e-03 -4.257064841463e-03 -2.199863474965e-05  9.664543767678e-03  3.998219958148e-03  1.000000000000e-04]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%timeit</span>
+
+<span class="c1"># Note, first call also performs compilation</span>
+<span class="c1"># Subsequent calls use compiled function, but operations like map and jacobian will trigger recompilation</span>
+
+<span class="n">element</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.17 ms ± 15 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div></div>
 </div>
 </section>
@@ -259,8 +381,8 @@ True
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="example-01.html" class="btn btn-neutral float-left" title="Example-02: Hamiltonian factory (non-autonomous integration in extended phase space)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="example-03.html" class="btn btn-neutral float-right" title="Example-04: Quadrupole element factory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="example-01.html" class="btn btn-neutral float-left" title="Example-02: Hamiltonian factory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example-03.html" class="btn btn-neutral float-right" title="Example-04: Drift element factory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example-07: Multipole element factory &mdash; elementary  documentation</title>
+  <title>Example-07: Octupole element factory &mdash; elementary  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
@@ -18,13 +18,13 @@
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"chtml": {"displayAlign": "left", "displayIndent": "2em"}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Example-08: Dipole element factory (body)" href="example-07.html" />
-    <link rel="prev" title="Example-06: Octupole element factory" href="example-05.html" /> 
+    <link rel="next" title="Example-08: Multipole element factory" href="example-07.html" />
+    <link rel="prev" title="Example-06: Sextupole element factory" href="example-05.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,23 +49,26 @@
               <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="example-00.html">Example-01: Functional iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-01.html">Example-02: Hamiltonian factory (non-autonomous integration in extended phase space)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-02.html">Example-03: Drift element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-03.html">Example-04: Quadrupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-04.html">Example-05: Sextupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-05.html">Example-06: Octupole element factory</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Example-07: Multipole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-07.html">Example-08: Dipole element factory (body)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-08.html">Example-08: Dipole element factory (body + cylindrical multipole)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-09.html">Example-10: Alignment errors (straight layout)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-10.html">Example-11: Alignment errors (curved layout)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-01.html">Example-02: Hamiltonian factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-02.html">Example-03: Element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-03.html">Example-04: Drift element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-04.html">Example-05: Quadrupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-05.html">Example-06: Sextupole element factory</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example-07: Octupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-07.html">Example-08: Multipole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-08.html">Example-09: Dipole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-09.html">Example-10: Dipole element factory (cylindrical multipole)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-10.html">Example-11: Alignment errors (straight layout)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules/util.html">Util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.bessel"><code class="docutils literal notranslate"><span class="pre">bessel()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.beta"><code class="docutils literal notranslate"><span class="pre">beta()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.gamma"><code class="docutils literal notranslate"><span class="pre">gamma()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.momentum"><code class="docutils literal notranslate"><span class="pre">momentum()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.ptc"><code class="docutils literal notranslate"><span class="pre">ptc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.rigidity"><code class="docutils literal notranslate"><span class="pre">rigidity()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/hamiltonian.html">Hamiltonian</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/hamiltonian.html#elementary.hamiltonian.autonomize"><code class="docutils literal notranslate"><span class="pre">autonomize()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/hamiltonian.html#elementary.hamiltonian.hamiltonian_factory"><code class="docutils literal notranslate"><span class="pre">hamiltonian_factory()</span></code></a></li>
@@ -119,7 +122,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Example-07: Multipole element factory</li>
+      <li class="breadcrumb-item active">Example-07: Octupole element factory</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/examples/example-06.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -129,18 +132,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Example-07:-Multipole-element-factory">
-<h1>Example-07: Multipole element factory<a class="headerlink" href="#Example-07:-Multipole-element-factory" title="Link to this heading"></a></h1>
+  <section id="Example-07:-Octupole-element-factory">
+<h1>Example-07: Octupole element factory<a class="headerlink" href="#Example-07:-Octupole-element-factory" title="Link to this heading"></a></h1>
+<p>In this example octupole factory is illustrated.</p>
+<p>The octupole hamiltonian is:</p>
+<p>$ <span class="math">\begin{align}
+& H(q_x, q_y, q_s, p_x, p_y, p_s; s) = \frac{p_s}{\beta} - t(s)(q_x p_y - q_y p_x) - (1 + h(s) q_x) \left(\sqrt{P_s^2 - P_x^2 - P_y^2 - \frac{1}{\beta^2 \gamma^2}} + a_s(q_x, q_y, q_s; s)\right)  \\
+& \\
+& P_s = p_s + 1/\beta - \varphi(q_x, q_y, q_s; s)  \\
+& P_x = p_x - a_x(q_x, q_y, q_s; s)  \\
+& P_y = p_y - a_y(q_x, q_y, q_s; s) \\
+\\
+& (a_x, a_y, a_s) = (0, 0, -\frac{1}{3!} k_n \left(\frac{q_x^4}{4} - 3 q_x^2 q_y^2 + \frac{q_y^4}{4}\right)  - \frac{1}{3!} k_s \left(q_x q_y^3 - q_x^3 q_y \right))\\
+& \varphi = 0 \\
+& t = h = 0 \\
+\end{align}</span> $</p>
+<p>The constructed element signature is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">octupole</span><span class="p">(</span><span class="n">qsps</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">kn</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">ks</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Note, both <code class="docutils literal notranslate"><span class="pre">kn</span></code> and <code class="docutils literal notranslate"><span class="pre">ks</span></code> should be passed on invocation.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this example multipole factory is illustrated</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
@@ -149,14 +163,14 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">elementary.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">ptc</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">elementary.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">beta</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">elementary.multipole</span><span class="w"> </span><span class="kn">import</span> <span class="n">multipole_factory</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">elementary.octupole</span><span class="w"> </span><span class="kn">import</span> <span class="n">octupole_factory</span>
 
 <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set data type</span>
@@ -166,7 +180,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set device</span>
@@ -177,45 +191,40 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set initial condition</span>
 
 <span class="p">(</span><span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span><span class="p">)</span> <span class="o">=</span> <span class="n">qs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">])</span>
 <span class="p">(</span><span class="n">p_x</span><span class="p">,</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">p_s</span><span class="p">)</span> <span class="o">=</span> <span class="n">ps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0001</span><span class="p">])</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">])</span>
+<span class="n">qsps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define generic sextupole element</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define generic octupole element</span>
 
-<span class="n">gamma</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
-<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">multipole_factory</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">(</span><span class="n">gamma</span><span class="p">),</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">settings</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">ns</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">octupole_factory</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">(</span><span class="n">gamma</span><span class="p">),</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare with PTC</span>
 
-<span class="n">length</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">length</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">kn</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="o">-</span><span class="mf">100.0</span><span class="p">)</span>
+<span class="n">ks</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="o">+</span><span class="mf">500.0</span><span class="p">)</span>
 
-<span class="n">kq_n</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">)</span>
-<span class="n">kq_s</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="o">+</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="n">ks_n</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="o">-</span><span class="mf">50.0</span><span class="p">)</span>
-<span class="n">ks_s</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="o">+</span><span class="mf">75.0</span><span class="p">)</span>
-<span class="n">ko_n</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="o">-</span><span class="mf">100.0</span><span class="p">)</span>
-<span class="n">ko_s</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="o">+</span><span class="mf">500.0</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span> <span class="o">:=</span> <span class="n">element</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">kq_n</span><span class="p">,</span> <span class="n">kq_s</span><span class="p">,</span> <span class="n">ks_n</span><span class="p">,</span> <span class="n">ks_s</span><span class="p">,</span> <span class="n">ko_n</span><span class="p">,</span> <span class="n">ko_s</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ref</span> <span class="o">:=</span> <span class="n">ptc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;quadrupole&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">length</span><span class="p">),</span> <span class="s1">&#39;knl&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">{{</span><span class="s1">0.0,</span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">kq_n</span><span class="o">*</span><span class="n">length</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">ks_n</span><span class="o">*</span><span class="n">length</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">ko_n</span><span class="o">*</span><span class="n">length</span><span class="p">)</span><span class="si">}</span><span class="se">}}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;ksl&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">{{</span><span class="s1">0.0,</span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">kq_s</span><span class="o">*</span><span class="n">length</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">ks_s</span><span class="o">*</span><span class="n">length</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">ko_s</span><span class="o">*</span><span class="n">length</span><span class="p">)</span><span class="si">}</span><span class="se">}}</span><span class="s1">&#39;</span><span class="p">},</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span> <span class="o">:=</span> <span class="n">element</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">kn</span><span class="p">,</span> <span class="n">ks</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ref</span> <span class="o">:=</span> <span class="n">ptc</span><span class="p">(</span><span class="n">qsps</span><span class="p">,</span> <span class="s1">&#39;octupole&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;l&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">length</span><span class="p">),</span> <span class="s1">&#39;k3&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">kn</span><span class="p">),</span> <span class="s1">&#39;k3s&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">ks</span><span class="p">)},</span> <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">ref</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -225,21 +234,21 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[-0.010195569406  0.004634631697  0.000999272345 -0.002587384238 -0.003898816771 -0.0001        ]
-[-0.010195569406  0.004634631697  0.000999272345 -0.002587384238 -0.003898816771 -0.0001        ]
+[-0.009797768862  0.005199205032  0.000999798525  0.001022114248  0.000992148146 -0.0001        ]
+[-0.009797768862  0.005199205032  0.000999798525  0.001022114248  0.000992148146 -0.0001        ]
 True
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Differentiability</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">)(</span><span class="n">x</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">kq_n</span><span class="p">,</span> <span class="n">kq_s</span><span class="p">,</span> <span class="n">ks_n</span><span class="p">,</span> <span class="n">ks_s</span><span class="p">,</span> <span class="n">ko_n</span><span class="p">,</span> <span class="n">ko_s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">)(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">kn</span><span class="p">,</span> <span class="n">ks</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">kq_n</span><span class="p">,</span> <span class="n">kq_s</span><span class="p">,</span> <span class="n">ks_n</span><span class="p">,</span> <span class="n">ks_s</span><span class="p">,</span> <span class="n">ko_n</span><span class="p">,</span> <span class="n">ko_s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="mi">1</span><span class="p">)(</span><span class="n">qsps</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">kn</span><span class="p">,</span> <span class="n">ks</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -249,14 +258,14 @@ True
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[ 1.058513409508e+00  1.641931362481e-02  0.000000000000e+00  2.548728245136e-01  1.371326922561e-03  1.953576941092e-04]
- [ 1.642278685170e-02  9.426914513911e-01  0.000000000000e+00  1.371531111274e-03  2.452402248601e-01  3.641387859174e-04]
- [ 1.183448542480e-04 -1.074854969909e-04  1.000000000000e+00  2.074101491120e-04  3.548722956512e-04  1.451592817300e-06]
- [ 4.713919361344e-01  1.315473343451e-01  0.000000000000e+00  1.058139548854e+00  1.647371074327e-02  2.099929059292e-05]
- [ 1.316213051530e-01 -4.522013363616e-01  0.000000000000e+00  1.647803989950e-02  9.430571887065e-01 -3.375925241435e-05]
- [-6.192865626461e-23  4.745338216997e-23  0.000000000000e+00 -2.057783281331e-23 -6.577614444340e-24  1.000000000000e+00]]
+[[ 9.995697830497e-01  4.656632792258e-04  0.000000000000e+00  1.999915493370e-01  3.093502378623e-05 -2.022535230983e-04]
+ [ 4.656649771080e-04  1.000430351571e+00  0.000000000000e+00  3.093510854460e-05  2.000492660372e-01 -1.992851672412e-04]
+ [-2.659897270538e-08 -9.006312695687e-07  1.000000000000e+00 -2.022530833439e-04 -1.992853937288e-04  6.030721251410e-07]
+ [-4.326806733311e-03  4.608973281245e-03  0.000000000000e+00  9.995646349961e-01  4.562292899969e-04 -1.639276538502e-08]
+ [ 4.609037834460e-03  4.329471623185e-03  0.000000000000e+00  4.562327538309e-04  1.000435498762e+00 -8.939569416383e-07]
+ [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  1.000000000000e+00]]
 
-[-2.587671336604e-03 -3.899249387940e-03 -1.095003441633e-05 -1.481596650448e-02 -1.916336194108e-02  6.001644775824e-24]
+[ 1.022217507094e-03  9.922483777699e-04 -1.014842745316e-06  1.106308301324e-04 -3.477926503128e-05  0.000000000000e+00]
 
 </pre></div></div>
 </div>
@@ -266,8 +275,8 @@ True
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="example-05.html" class="btn btn-neutral float-left" title="Example-06: Octupole element factory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="example-07.html" class="btn btn-neutral float-right" title="Example-08: Dipole element factory (body)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="example-05.html" class="btn btn-neutral float-left" title="Example-06: Sextupole element factory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example-07.html" class="btn btn-neutral float-right" title="Example-08: Multipole element factory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

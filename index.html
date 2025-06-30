@@ -17,7 +17,7 @@
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"chtml": {"displayAlign": "left", "displayIndent": "2em"}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -47,23 +47,26 @@
               <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/example-00.html">Example-01: Functional iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-01.html">Example-02: Hamiltonian factory (non-autonomous integration in extended phase space)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-02.html">Example-03: Drift element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-03.html">Example-04: Quadrupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-04.html">Example-05: Sextupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-05.html">Example-06: Octupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-06.html">Example-07: Multipole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-07.html">Example-08: Dipole element factory (body)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-08.html">Example-08: Dipole element factory (body + cylindrical multipole)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-09.html">Example-10: Alignment errors (straight layout)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-10.html">Example-11: Alignment errors (curved layout)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-01.html">Example-02: Hamiltonian factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-02.html">Example-03: Element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-03.html">Example-04: Drift element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-04.html">Example-05: Quadrupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-05.html">Example-06: Sextupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-06.html">Example-07: Octupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-07.html">Example-08: Multipole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-08.html">Example-09: Dipole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-09.html">Example-10: Dipole element factory (cylindrical multipole)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-10.html">Example-11: Alignment errors (straight layout)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules/util.html">Util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/util.html#elementary.util.bessel"><code class="docutils literal notranslate"><span class="pre">bessel()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/util.html#elementary.util.beta"><code class="docutils literal notranslate"><span class="pre">beta()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/util.html#elementary.util.gamma"><code class="docutils literal notranslate"><span class="pre">gamma()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/util.html#elementary.util.momentum"><code class="docutils literal notranslate"><span class="pre">momentum()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/util.html#elementary.util.ptc"><code class="docutils literal notranslate"><span class="pre">ptc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/util.html#elementary.util.rigidity"><code class="docutils literal notranslate"><span class="pre">rigidity()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/hamiltonian.html">Hamiltonian</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/hamiltonian.html#elementary.hamiltonian.autonomize"><code class="docutils literal notranslate"><span class="pre">autonomize()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/hamiltonian.html#elementary.hamiltonian.hamiltonian_factory"><code class="docutils literal notranslate"><span class="pre">hamiltonian_factory()</span></code></a></li>
@@ -133,17 +136,17 @@
 Single particle hamiltonian function:</p>
 <div class="math notranslate nohighlight">
 \begin{eqnarray}
-&amp; H = H(q_x, q_y, q_s, p_x, p_y, p_s; s) \\
-&amp; H = p_s/\beta - t(s)(q_x p_y - q_y p_x) - (1 + h(s) q_x) (\sqrt{P_s^2 - P_x^2 - P_y^2 - 1/(\beta \gamma)^2} - a_s)  \\
-&amp; P_s = p_s + 1/\beta - \varphi(q_x, q_y, q_s, s)  \\
-&amp; P_x = p_x - a_x(q_x, q_y, q_s, s)  \\
-&amp; P_y  p_y - a_y(q_x, q_y, q_s, s)
-\end{eqnarray}</div><p>where <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span> are the relativistic factors, <span class="math notranslate nohighlight">\(h(s)\)</span> is the reference trajectory curvature and <span class="math notranslate nohighlight">\(t(s)\)</span> is the reference trajectory torsion, <span class="math notranslate nohighlight">\(a_x(qs, s)\)</span>, <span class="math notranslate nohighlight">\(a_y(qs, s)\)</span> and <span class="math notranslate nohighlight">\(a_s(qs, s)\)</span> are the scaled vector potential components, and <span class="math notranslate nohighlight">\(\varphi(qs, s)\)</span> is the scaled scalar potential.
+&amp; H(q_x, q_y, q_s, p_x, p_y, p_s; s) = \frac{p_s}{\beta} - t(s)(q_x p_y - q_y p_x) - (1 + h(s) q_x) \left(\sqrt{P_s^2 - P_x^2 - P_y^2 - \frac{1}{\beta^2 \gamma^2}} + a_s(q_x, q_y, q_s; s)\right)  \\
+&amp; \\
+&amp; P_s = p_s + 1/\beta - \varphi(q_x, q_y, q_s; s)  \\
+&amp; P_x = p_x - a_x(q_x, q_y, q_s; s)  \\
+&amp; P_y = p_y - a_y(q_x, q_y, q_s; s)
+\end{eqnarray}</div><p>where <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span> are the relativistic factors, <span class="math notranslate nohighlight">\(h(s)\)</span> is the reference trajectory curvature and <span class="math notranslate nohighlight">\(t(s)\)</span> is the reference trajectory torsion, <span class="math notranslate nohighlight">\(a_x(q_x, q_y, q_s; s)\)</span>, <span class="math notranslate nohighlight">\(a_y(q_x, q_y, q_s; s)\)</span> and <span class="math notranslate nohighlight">\(a_s(q_x, q_y, q_s; s)\)</span> are the scaled vector potential components, and <span class="math notranslate nohighlight">\(\varphi(q_x, q_y, q_s; s)\)</span> is the scaled scalar potential.
 Additionaly, longitudinal coordinate and momentum are given by:</p>
 <div class="math notranslate nohighlight">
  \begin{eqnarray}
  &amp; q_s = \frac{s}{\beta} - c t \\
- &amp; p_s = \frac{E}{c P} - 1/beta
+ &amp; p_s = \frac{E}{c P} - \frac{1}{\beta}
  \end{eqnarray}</div><p>Common predefined elements are available or you can create your own by specifying scaled potentials and reference trajectory parameters (curvature and torsion).
 All but vector potentials arguments are optional for hamiltonian and element construction.
 Vector and scalar potentials are assumed to have matching signatures.</p>
@@ -182,25 +185,28 @@ Note, same extra arguments as in vector and scalar functions should be passed.</
 <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="examples/example-00.html">Example-01: Functional iteration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-01.html">Example-02: Hamiltonian factory (non-autonomous integration in extended phase space)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-02.html">Example-03: Drift element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-03.html">Example-04: Quadrupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-04.html">Example-05: Sextupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-05.html">Example-06: Octupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-06.html">Example-07: Multipole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-07.html">Example-08: Dipole element factory (body)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-08.html">Example-08: Dipole element factory (body + cylindrical multipole)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-09.html">Example-10: Alignment errors (straight layout)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples/example-10.html">Example-11: Alignment errors (curved layout)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-01.html">Example-02: Hamiltonian factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-02.html">Example-03: Element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-03.html">Example-04: Drift element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-04.html">Example-05: Quadrupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-05.html">Example-06: Sextupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-06.html">Example-07: Octupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-07.html">Example-08: Multipole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-08.html">Example-09: Dipole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-09.html">Example-10: Dipole element factory (cylindrical multipole)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/example-10.html">Example-11: Alignment errors (straight layout)</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules/util.html">Util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/util.html#elementary.util.bessel"><code class="docutils literal notranslate"><span class="pre">bessel()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/util.html#elementary.util.beta"><code class="docutils literal notranslate"><span class="pre">beta()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/util.html#elementary.util.gamma"><code class="docutils literal notranslate"><span class="pre">gamma()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/util.html#elementary.util.momentum"><code class="docutils literal notranslate"><span class="pre">momentum()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/util.html#elementary.util.ptc"><code class="docutils literal notranslate"><span class="pre">ptc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/util.html#elementary.util.rigidity"><code class="docutils literal notranslate"><span class="pre">rigidity()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/hamiltonian.html">Hamiltonian</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/hamiltonian.html#elementary.hamiltonian.autonomize"><code class="docutils literal notranslate"><span class="pre">autonomize()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/hamiltonian.html#elementary.hamiltonian.hamiltonian_factory"><code class="docutils literal notranslate"><span class="pre">hamiltonian_factory()</span></code></a></li>

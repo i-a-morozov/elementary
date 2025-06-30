@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example-02: Hamiltonian factory (non-autonomous integration in extended phase space) &mdash; elementary  documentation</title>
+  <title>Example-02: Hamiltonian factory &mdash; elementary  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
@@ -18,12 +18,12 @@
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"chtml": {"displayAlign": "left", "displayIndent": "2em"}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Example-03: Drift element factory" href="example-02.html" />
+    <link rel="next" title="Example-03: Element factory" href="example-02.html" />
     <link rel="prev" title="Example-01: Functional iteration" href="example-00.html" /> 
 </head>
 
@@ -49,23 +49,26 @@
               <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="example-00.html">Example-01: Functional iteration</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Example-02: Hamiltonian factory (non-autonomous integration in extended phase space)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-02.html">Example-03: Drift element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-03.html">Example-04: Quadrupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-04.html">Example-05: Sextupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-05.html">Example-06: Octupole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-06.html">Example-07: Multipole element factory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-07.html">Example-08: Dipole element factory (body)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-08.html">Example-08: Dipole element factory (body + cylindrical multipole)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-09.html">Example-10: Alignment errors (straight layout)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-10.html">Example-11: Alignment errors (curved layout)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example-02: Hamiltonian factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-02.html">Example-03: Element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-03.html">Example-04: Drift element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-04.html">Example-05: Quadrupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-05.html">Example-06: Sextupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-06.html">Example-07: Octupole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-07.html">Example-08: Multipole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-08.html">Example-09: Dipole element factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-09.html">Example-10: Dipole element factory (cylindrical multipole)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-10.html">Example-11: Alignment errors (straight layout)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../modules/util.html">Util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.bessel"><code class="docutils literal notranslate"><span class="pre">bessel()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.beta"><code class="docutils literal notranslate"><span class="pre">beta()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.gamma"><code class="docutils literal notranslate"><span class="pre">gamma()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.momentum"><code class="docutils literal notranslate"><span class="pre">momentum()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.ptc"><code class="docutils literal notranslate"><span class="pre">ptc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/util.html#elementary.util.rigidity"><code class="docutils literal notranslate"><span class="pre">rigidity()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/hamiltonian.html">Hamiltonian</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/hamiltonian.html#elementary.hamiltonian.autonomize"><code class="docutils literal notranslate"><span class="pre">autonomize()</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/hamiltonian.html#elementary.hamiltonian.hamiltonian_factory"><code class="docutils literal notranslate"><span class="pre">hamiltonian_factory()</span></code></a></li>
@@ -119,7 +122,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Example-02: Hamiltonian factory (non-autonomous integration in extended phase space)</li>
+      <li class="breadcrumb-item active">Example-02: Hamiltonian factory</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/examples/example-01.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -129,18 +132,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Example-02:-Hamiltonian-factory-(non-autonomous-integration-in-extended-phase-space)">
-<h1>Example-02: Hamiltonian factory (non-autonomous integration in extended phase space)<a class="headerlink" href="#Example-02:-Hamiltonian-factory-(non-autonomous-integration-in-extended-phase-space)" title="Link to this heading"></a></h1>
+  <section id="Example-02:-Hamiltonian-factory">
+<h1>Example-02: Hamiltonian factory<a class="headerlink" href="#Example-02:-Hamiltonian-factory" title="Link to this heading"></a></h1>
+<p>In this example non-autonomous generic hamiltonial symplectic integration is illustrated. <code class="docutils literal notranslate"><span class="pre">`sympint</span></code> &lt;<a class="reference external" href="https://github.com/i-a-morozov/sympint">https://github.com/i-a-morozov/sympint</a>&gt;`__ JAX based library is used to perfrom integration. <code class="docutils literal notranslate"><span class="pre">elementary.hamiltonian</span></code> provides <code class="docutils literal notranslate"><span class="pre">hamiltonian_factory</span></code> that can be used to construct a generic accelerator element hamiltonian with the following signature:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">hamiltonian</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">ps</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
+    <span class="n">p_x</span><span class="p">,</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">p_s</span> <span class="o">=</span> <span class="n">ps</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>In the most general case one needs to pass <code class="docutils literal notranslate"><span class="pre">vector</span></code> (required), <code class="docutils literal notranslate"><span class="pre">scalar</span></code>, <code class="docutils literal notranslate"><span class="pre">torsion</span></code> and <code class="docutils literal notranslate"><span class="pre">curvature</span></code> functions with signatures:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vector</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">]:</span>
+  <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
+  <span class="o">...</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">scalar</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+  <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
+  <span class="o">...</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">curvature</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+  <span class="o">...</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">torsion</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+  <span class="o">...</span>
+</pre></div>
+</div>
+<p>Note, <code class="docutils literal notranslate"><span class="pre">*args</span></code> are expexted to match between all the above functions.</p>
+<p>Explicitly, the accelerator hamiltonian is:</p>
+<p>$ <span class="math">\begin{align}
+& H(q_x, q_y, q_s, p_x, p_y, p_s; s) = \frac{p_s}{\beta} - t(s)(q_x p_y - q_y p_x) - (1 + h(s) q_x) \left(\sqrt{P_s^2 - P_x^2 - P_y^2 - \frac{1}{\beta^2 \gamma^2}} + a_s(q_x, q_y, q_s; s)\right)  \\
+& \\
+& P_s = p_s + 1/\beta - \varphi(q_x, q_y, q_s; s)  \\
+& P_x = p_x - a_x(q_x, q_y, q_s; s)  \\
+& P_y = p_y - a_y(q_x, q_y, q_s; s)
+\end{align}</span> $</p>
+<p>where <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span> are the relativistic factors, <span class="math notranslate nohighlight">\(h(s)\)</span> is the reference trajectory curvature and <span class="math notranslate nohighlight">\(t(s)\)</span> is the reference trajectory torsion, <span class="math notranslate nohighlight">\(a_x(q_x, q_y, q_s; s)\)</span>, <span class="math notranslate nohighlight">\(a_y(q_x, q_y, q_s; s)\)</span> and <span class="math notranslate nohighlight">\(a_s(q_x, q_y, q_s; s)\)</span> are the scaled vector potential components, and <span class="math notranslate nohighlight">\(\varphi(q_x, q_y, q_s; s)\)</span> is the scaled scalar potential. Additionaly, longitudinal coordinate and momentum are given by:</p>
+<p>$ <span class="math">\begin{align}
+& q_s = \frac{s}{\beta} - c t \\
+& p_s = \frac{E}{c P} - \frac{1}{\beta}
+\end{align}</span> $</p>
+<p>The expression for <span class="math notranslate nohighlight">\(q_s\)</span> should be used to replace explicit time dependence.</p>
+<p>As an example, the following non-autonomous hamiltonian is used:</p>
+<p>$ <span class="math">\begin{align}
+& H = p_s - \left(\sqrt{(1 + p_s)^2 - p_x^2 - p_y^2} + \frac{1}{2} k_n \left(1 + \sin\left(2 \pi \frac{s}{l}\right)\right) \left(q_x^2 - q_y^2\right)\right)
+\end{align}</span> $</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this example non-autonomous hamiltonial is integrated</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import</span>
@@ -152,8 +189,8 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">elementary</span><span class="w"> </span><span class="kn">import</span> <span class="n">fold</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">elementary</span><span class="w"> </span><span class="kn">import</span> <span class="n">nest</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">elementary</span><span class="w"> </span><span class="kn">import</span> <span class="n">midpoint</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">elementary</span><span class="w"> </span><span class="kn">import</span> <span class="n">tao</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">elementary</span><span class="w"> </span><span class="kn">import</span> <span class="n">midpoint</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">elementary</span><span class="w"> </span><span class="kn">import</span> <span class="n">sequence</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">elementary.hamiltonian</span><span class="w"> </span><span class="kn">import</span> <span class="n">hamiltonian_factory</span>
@@ -164,7 +201,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set data type</span>
@@ -174,7 +211,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set device</span>
@@ -185,14 +222,29 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set parameters</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set parameters (initial independent parameter value, integration step length and quadrupole amplitude)</span>
 
 <span class="n">si</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
 <span class="n">kn</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set initial condition</span>
+
+<span class="n">qs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.001</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.005</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">])</span>
+
+<span class="n">qsps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -200,11 +252,17 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set initial condition</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define non-autonomous and extended hamiltonian (explicit)</span>
 
-<span class="n">qs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.001</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
-<span class="n">ps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.005</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">])</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hamiltonian</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
+    <span class="n">p_x</span><span class="p">,</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">p_s</span> <span class="o">=</span> <span class="n">ps</span>
+    <span class="k">return</span> <span class="n">p_s</span> <span class="o">-</span> <span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p_s</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">p_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">p_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">kn</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">s</span><span class="o">/</span><span class="n">l</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">q_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">q_y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">extended</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span><span class="p">,</span> <span class="n">q_t</span> <span class="o">=</span> <span class="n">qs</span>
+    <span class="n">p_x</span><span class="p">,</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">p_s</span><span class="p">,</span> <span class="n">p_t</span> <span class="o">=</span> <span class="n">ps</span>
+    <span class="k">return</span> <span class="n">p_t</span> <span class="o">+</span> <span class="p">(</span><span class="n">p_s</span> <span class="o">-</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p_s</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">p_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">p_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">kn</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">q_t</span><span class="o">/</span><span class="n">l</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">q_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">q_y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -212,17 +270,11 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define non-autonomous and extended hamiltonian (explicit)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set extended initial condition</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">hamiltonian</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">kn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
-    <span class="n">p_x</span><span class="p">,</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">p_s</span> <span class="o">=</span> <span class="n">ps</span>
-    <span class="k">return</span> <span class="n">p_s</span> <span class="o">-</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p_s</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">p_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">p_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">kn</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">q_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">q_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">extended</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">kn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span><span class="p">,</span> <span class="n">q_t</span> <span class="o">=</span> <span class="n">qs</span>
-    <span class="n">p_x</span><span class="p">,</span> <span class="n">p_y</span><span class="p">,</span> <span class="n">p_s</span><span class="p">,</span> <span class="n">p_t</span> <span class="o">=</span> <span class="n">ps</span>
-    <span class="k">return</span> <span class="n">p_t</span> <span class="o">+</span> <span class="p">(</span><span class="n">p_s</span> <span class="o">-</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">p_s</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">p_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">p_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">kn</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">q_t</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">q_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">q_y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">Qs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">qs</span><span class="p">,</span> <span class="n">si</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
+<span class="n">Ps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ps</span><span class="p">,</span> <span class="o">-</span><span class="n">hamiltonian</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
+<span class="n">QsPs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Qs</span><span class="p">,</span> <span class="n">Ps</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -230,18 +282,6 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set extended initial condition</span>
-
-<span class="n">Qs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">qs</span><span class="p">,</span> <span class="n">si</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
-<span class="n">Ps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ps</span><span class="p">,</span> <span class="o">-</span><span class="n">hamiltonian</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Qs</span><span class="p">,</span> <span class="n">Ps</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set implicit midpoint integration step</span>
 
 <span class="n">integrator</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">fold</span><span class="p">(</span><span class="n">sequence</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="n">midpoint</span><span class="p">(</span><span class="n">extended</span><span class="p">,</span> <span class="n">ns</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">)],</span> <span class="n">merge</span><span class="o">=</span><span class="kc">False</span><span class="p">)))</span>
@@ -249,13 +289,13 @@
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set and compile element</span>
 
-<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">nest</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">integrator</span><span class="p">))</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">nest</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="o">/</span><span class="n">ds</span><span class="p">),</span> <span class="n">integrator</span><span class="p">))</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="n">QsPs</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -265,11 +305,11 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 4.093772217780e-03 -2.130920641490e-03 -1.157542898301e-05  1.500000000000e+00  7.828730523443e-04  5.455056721550e-03  1.000000000000e-04  9.999734128953e-01]
+[ 7.235126271922e-03 -4.257064841347e-03 -2.199863474715e-05  1.500000000000e+00  9.664543767467e-03  3.998219958383e-03  1.000000000000e-04  9.999624216145e-01]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set tao integration step</span>
@@ -279,13 +319,13 @@
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set and compile element</span>
 
-<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">nest</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">integrator</span><span class="p">))</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">nest</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="o">/</span><span class="n">ds</span><span class="p">),</span> <span class="n">integrator</span><span class="p">))</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="n">QsPs</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -295,28 +335,39 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 4.093772217780e-03 -2.130920641487e-03 -1.157542898302e-05  1.500000000000e+00  7.828730523431e-04  5.455056721550e-03  1.000000000000e-04  9.999734128953e-01]
+[ 7.235126271969e-03 -4.257064841463e-03 -2.199863474965e-05  1.500000000000e+00  9.664543767678e-03  3.998219958148e-03  1.000000000000e-04  9.999624216145e-01]
 </pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define non-autonomous and extended hamiltonian (factory)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">vector</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">l</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">kn</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">]:</span>
+    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
+    <span class="n">a_x</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">a_s</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">qs</span><span class="p">)</span>
+    <span class="n">a_s</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">kn</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">s</span><span class="o">/</span><span class="n">l</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">q_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">q_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a_x</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">a_s</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">scalar</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">l</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">kn</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
+    <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">hamiltonian</span> <span class="o">=</span> <span class="n">hamiltonian_factory</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">scalar</span><span class="p">)</span>
+<span class="n">extended</span> <span class="o">=</span> <span class="n">autonomize</span><span class="p">(</span><span class="n">hamiltonian</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define non-autonomous and extended hamiltonian (factory)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set extended initial condition</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">vector</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">kn</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">,</span> <span class="n">Array</span><span class="p">]:</span>
-    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
-    <span class="n">a_x</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">a_s</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">qs</span><span class="p">)</span>
-    <span class="n">a_s</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">kn</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">q_x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">q_y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">a_x</span><span class="p">,</span> <span class="n">a_y</span><span class="p">,</span> <span class="n">a_s</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">scalar</span><span class="p">(</span><span class="n">qs</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="n">kn</span><span class="p">:</span><span class="n">Array</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span><span class="n">Array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
-    <span class="n">q_x</span><span class="p">,</span> <span class="n">q_y</span><span class="p">,</span> <span class="n">q_s</span> <span class="o">=</span> <span class="n">qs</span>
-    <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-
-<span class="n">hamiltonian</span> <span class="o">=</span> <span class="n">hamiltonian_factory</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">scalar</span><span class="p">)</span>
-
-<span class="n">extended</span> <span class="o">=</span> <span class="n">autonomize</span><span class="p">(</span><span class="n">hamiltonian</span><span class="p">)</span>
+<span class="n">Qs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">qs</span><span class="p">,</span> <span class="n">si</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
+<span class="n">Ps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ps</span><span class="p">,</span> <span class="o">-</span><span class="n">hamiltonian</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
+<span class="n">QsPs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Qs</span><span class="p">,</span> <span class="n">Ps</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -324,18 +375,6 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set extended initial condition</span>
-
-<span class="n">Qs</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">qs</span><span class="p">,</span> <span class="n">si</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
-<span class="n">Ps</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ps</span><span class="p">,</span> <span class="o">-</span><span class="n">hamiltonian</span><span class="p">(</span><span class="n">qs</span><span class="p">,</span> <span class="n">ps</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Qs</span><span class="p">,</span> <span class="n">Ps</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set implicit midpoint integration step</span>
 
 <span class="n">integrator</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">fold</span><span class="p">(</span><span class="n">sequence</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="n">midpoint</span><span class="p">(</span><span class="n">extended</span><span class="p">,</span> <span class="n">ns</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">)],</span> <span class="n">merge</span><span class="o">=</span><span class="kc">False</span><span class="p">)))</span>
@@ -343,13 +382,13 @@
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set and compile element</span>
 
-<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">nest</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">integrator</span><span class="p">))</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">nest</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="o">/</span><span class="n">ds</span><span class="p">),</span> <span class="n">integrator</span><span class="p">))</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="n">QsPs</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -359,11 +398,11 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 4.093772217780e-03 -2.130920641490e-03 -1.157542898301e-05  1.500000000000e+00  7.828730523443e-04  5.455056721550e-03  1.000000000000e-04  9.999734128953e-01]
+[ 7.235126271922e-03 -4.257064841347e-03 -2.199863474715e-05  1.500000000000e+00  9.664543767467e-03  3.998219958383e-03  1.000000000000e-04  9.999624216145e-01]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set tao integration step</span>
@@ -373,13 +412,13 @@
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set and compile element</span>
 
-<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">nest</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">integrator</span><span class="p">))</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">nest</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="o">/</span><span class="n">ds</span><span class="p">),</span> <span class="n">integrator</span><span class="p">))</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">element</span><span class="p">(</span><span class="n">QsPs</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -389,52 +428,54 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 4.093772217780e-03 -2.130920641487e-03 -1.157542898302e-05  1.500000000000e+00  7.828730523431e-04  5.455056721550e-03  1.000000000000e-04  9.999734128953e-01]
+[ 7.235126271969e-03 -4.257064841463e-03 -2.199863474965e-05  1.500000000000e+00  9.664543767678e-03  3.998219958148e-03  1.000000000000e-04  9.999624216145e-01]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diffirentiability (initial condition)</span>
 
-<span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">)(</span><span class="n">QsPs</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">matrix</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Array([[ 2.733638829123e-01, -5.073806420139e-06,  0.000000000000e+00,  8.507003015250e-04,  7.640867440566e-01,  3.911335010850e-06, -2.099797209399e-03,  0.000000000000e+00],
-       [-5.073787794666e-06,  2.733566344460e-01,  0.000000000000e+00, -1.445226318313e-03,  3.911295686010e-06,  7.640874081955e-01, -2.608613878958e-03,  0.000000000000e+00],
-       [ 1.815088641299e-03,  2.754207969965e-03,  1.000000000000e+00,  3.912375857701e-06, -2.607918123372e-03, -1.844346610617e-03,  1.977826577988e-05,  0.000000000000e+00],
-       [ 0.000000000000e+00,  0.000000000000e+00,  0.000000000000e+00,  1.000000000000e+00,  0.000000000000e+00,  0.000000000000e+00,  0.000000000000e+00,  0.000000000000e+00],
-       [-1.169086112155e+00,  2.508455236989e-06,  0.000000000000e+00,  2.194571127834e-03,  3.903836816403e-01, -2.470173985962e-06,  2.340302050291e-03,  0.000000000000e+00],
-       [ 2.508450612498e-06, -1.169086571022e+00,  0.000000000000e+00, -2.552292481525e-03, -2.470160046831e-06,  3.903899102544e-01,  1.080983794292e-03,  0.000000000000e+00],
-       [ 0.000000000000e+00,  0.000000000000e+00,  0.000000000000e+00,  0.000000000000e+00,  0.000000000000e+00,  0.000000000000e+00,  1.000000000000e+00,  0.000000000000e+00],
-       [ 1.594474968020e-03, -2.387294032472e-03,  0.000000000000e+00,  9.568051265768e-06,  1.344729639275e-03, -1.385962089381e-03, -2.291214027951e-06,  1.000000000000e+00]], dtype=float64)
+[[ 1.366527779203e+00 -5.802223397334e-06  0.000000000000e+00  1.658258296648e-03  1.173782172073e+00  3.024552512394e-06 -7.166765586369e-03  0.000000000000e+00]
+ [ 6.891863981574e-06  6.833771361996e-01  0.000000000000e+00  4.804596565370e-04  1.099963935945e-05  8.401702767985e-01 -7.785286136285e-04  0.000000000000e+00]
+ [-2.784634943647e-03  6.697396020357e-04  1.000000000000e+00 -1.788345235604e-05 -7.636376226265e-03 -3.158011828099e-04  5.159686903021e-05  0.000000000000e+00]
+ [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  1.000000000000e+00  0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  0.000000000000e+00]
+ [ 1.134284155157e+00 -9.555360071284e-07  0.000000000000e+00 -1.418791282023e-04  1.706077662573e+00 -1.231406521087e-07 -3.911016696259e-03  0.000000000000e+00]
+ [-1.121934780525e-06 -8.767306145299e-01  0.000000000000e+00  1.453245809425e-03 -1.267627972649e-06  3.854343128509e-01  1.873697940944e-05  0.000000000000e+00]
+ [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  1.000000000000e+00  0.000000000000e+00]
+ [-2.074807326405e-03  1.414351057111e-03  0.000000000000e+00 -1.733134500028e-04 -2.995636035736e-03  1.035788071469e-03  2.424534688640e-05  1.000000000000e+00]]
+1.0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diffirentiability (parameter)</span>
 
-<span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">argnums</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">X</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">kn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jacrev</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">argnums</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">QsPs</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">kn</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Array([-1.720422619828e-03,  3.372942592063e-03, -8.584999600196e-06,  0.000000000000e+00, -3.509583906528e-03,  4.764367089934e-03,  0.000000000000e+00,  5.002086081004e-06], dtype=float64)
+[ 1.298574427115e-03  1.618721745092e-03 -1.373594876871e-05  0.000000000000e+00  5.045563129602e-03  4.364921756032e-03  0.000000000000e+00 -2.081340401732e-05]
 </pre></div></div>
 </div>
 </section>
@@ -444,7 +485,7 @@ Array([-1.720422619828e-03,  3.372942592063e-03, -8.584999600196e-06,  0.0000000
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="example-00.html" class="btn btn-neutral float-left" title="Example-01: Functional iteration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="example-02.html" class="btn btn-neutral float-right" title="Example-03: Drift element factory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="example-02.html" class="btn btn-neutral float-right" title="Example-03: Element factory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -3,26 +3,49 @@
   {
    "attachments": {},
    "cell_type": "markdown",
-   "id": "cfd89770-b82f-4d57-b009-e96ad4b4ab04",
+   "id": "556562f3-8ece-4517-8c93-ee5e2fc29131",
    "metadata": {},
    "source": [
-    "# Example-05: Sextupole element factory"
+    "# Example-05: Quadrupole element factory"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d9982b6c-a41e-42c6-b005-3b1788e714cf",
+   "metadata": {},
+   "source": [
+    "In this example quadrupole factory is illustrated. \n",
+    "\n",
+    "The quadrupole hamiltonian is:\n",
+    "\n",
+    "$\n",
+    "\\begin{align}\n",
+    "& H(q_x, q_y, q_s, p_x, p_y, p_s; s) = \\frac{p_s}{\\beta} - t(s)(q_x p_y - q_y p_x) - (1 + h(s) q_x) \\left(\\sqrt{P_s^2 - P_x^2 - P_y^2 - \\frac{1}{\\beta^2 \\gamma^2}} + a_s(q_x, q_y, q_s; s)\\right)  \\\\\n",
+    "& \\\\\n",
+    "& P_s = p_s + 1/\\beta - \\varphi(q_x, q_y, q_s; s)  \\\\\n",
+    "& P_x = p_x - a_x(q_x, q_y, q_s; s)  \\\\\n",
+    "& P_y = p_y - a_y(q_x, q_y, q_s; s) \\\\\n",
+    "\\\\\n",
+    "& (a_x, a_y, a_s) = (0, 0, -\\frac{1}{2} k_n \\left(q_x^2 + q_y^2 \\right)  + k_s q_x q_y)\\\\\n",
+    "& \\varphi = 0 \\\\\n",
+    "& t = h = 0 \\\\\n",
+    "\\end{align}\n",
+    "$\n",
+    "\n",
+    "The constructed element signature is:\n",
+    "\n",
+    "```python\n",
+    "def quadrupole(qsps:Array, length:Array, kn:Array, ks:Array) -> Array:\n",
+    "    ...\n",
+    "```\n",
+    "\n",
+    "Note, both `kn` and `ks` should be passed on invocation."
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "efd70fdd-6802-400e-9130-08c4722e594e",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# In this example sextupole factory is illustrated"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 2,
-   "id": "e655aa42-6a9f-4854-bbb1-239698bbcdc1",
+   "id": "7d852ca1-4e33-4983-8ec3-5b7d67f63674",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -32,15 +55,15 @@
     "\n",
     "from elementary.util import ptc\n",
     "from elementary.util import beta\n",
-    "from elementary.sextupole import sextupole_factory\n",
+    "from elementary.quadrupole import quadrupole_factory\n",
     "\n",
     "jax.numpy.set_printoptions(linewidth=256, precision=12)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
-   "id": "7b8305cf-6861-42aa-bd32-9427e8e797be",
+   "execution_count": 2,
+   "id": "4e720ace-fceb-4f37-907f-999ff99c1aec",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -51,8 +74,8 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
-   "id": "0d14a00d-ba1d-49f7-b406-c408bccfd082",
+   "execution_count": 3,
+   "id": "0e8314ca-3244-4989-9bbb-e8e0fb9347dc",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -64,8 +87,8 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
-   "id": "35ad9ae9-e14d-46a4-a91e-7740093f8639",
+   "execution_count": 4,
+   "id": "b9ee3851-7d8d-47cc-a1df-efa850ab6852",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -73,34 +96,34 @@
     "\n",
     "(q_x, q_y, q_s) = qs = jax.numpy.array([-0.01, 0.005, 0.001])\n",
     "(p_x, p_y, p_s) = ps = jax.numpy.array([0.001, 0.001, -0.0001])\n",
-    "x = jax.numpy.hstack([qs, ps])"
+    "qsps = jax.numpy.hstack([qs, ps])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "42328cbf-7250-42c2-8721-c20ba29e644e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Define generic quadrupole element\n",
+    "\n",
+    "gamma = 10**3\n",
+    "element = jit(quadrupole_factory(beta=beta(gamma), gamma=gamma, order=2**1, iterations=100))"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "4ac69bdf-9a83-4faa-a26c-0779132c825a",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# Define generic sextupole element\n",
-    "\n",
-    "gamma = 10**6\n",
-    "element = jit(sextupole_factory(beta=beta(gamma), gamma=gamma, order=2**1, iterations=100, settings=dict(ns=2**1)))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 7,
-   "id": "5436ae26-969e-4f32-ba03-9818577f7329",
+   "id": "0c974d8d-a443-4a3a-be4d-a5f65ef8d1b1",
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "[-0.009839311476  0.005305274154  0.000999691958  0.000595944971  0.002048184556 -0.0001        ]\n",
-      "[-0.009839311476  0.005305274154  0.000999691958  0.000595944971  0.002048184556 -0.0001        ]\n",
+      "[-0.017335308274 -0.005444917174  0.000881617913 -0.020606852812 -0.020050030434 -0.0001        ]\n",
+      "[-0.017335308274 -0.005444917174  0.000881617913 -0.020606852812 -0.020050030434 -0.0001        ]\n",
       "True\n"
      ]
     }
@@ -108,33 +131,33 @@
    "source": [
     "# Compare with PTC\n",
     "\n",
-    "length = jax.numpy.float64(0.2)\n",
-    "kn = jax.numpy.float64(-50.0)\n",
-    "ks = jax.numpy.float64(+75.0)\n",
+    "length = jax.numpy.float64(1.0)\n",
+    "kn = jax.numpy.float64(-2.0)\n",
+    "ks = jax.numpy.float64(+1.5)\n",
     "\n",
-    "print(res := element(x, length, kn, ks))\n",
-    "print(ref := ptc(x, 'sextupole', {'l': float(length), 'k2': float(kn), 'k2s': float(ks)}, gamma=gamma))\n",
+    "print(res := element(qsps, length, kn, ks))\n",
+    "print(ref := ptc(qsps, 'quadrupole', {'l': float(length), 'k1': float(kn), 'k1s': float(ks)}, gamma=gamma))\n",
     "print(jax.numpy.allclose(res, ref))"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
-   "id": "6283c023-bee0-4121-9e2a-a166ecb5f667",
+   "execution_count": 7,
+   "id": "9d96dbbf-4849-4fe3-bc29-22896e2201a6",
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "[[ 9.977539230852e-01 -1.999683875914e-02  0.000000000000e+00  1.998755038415e-01 -1.333336463861e-03 -1.588878018948e-04]\n",
-      " [-1.999528286317e-02  1.002381087687e+00  0.000000000000e+00 -1.333283393123e-03  2.001711272351e-01 -3.042892476466e-04]\n",
-      " [ 3.567742993840e-05  1.067886227030e-05  1.000000000000e+00 -1.582181525155e-04 -3.046374640722e-04  6.130677412435e-07]\n",
-      " [-2.075140977984e-02 -2.000692596676e-01  0.000000000000e+00  9.979602547484e-01 -2.001825891300e-02  2.884095678113e-05]\n",
-      " [-2.000275114867e-01  2.345269216812e-02  0.000000000000e+00 -2.001650181601e-02  1.002174743629e+00  1.451546593510e-05]\n",
-      " [-1.222214716319e-23  6.594282317221e-24  0.000000000000e+00  7.463717130175e-24 -6.770206730037e-24  1.000000000000e+00]]\n",
+      "[[ 2.279575304234e+00  7.632479527605e-01  0.000000000000e+00  1.388655261371e+00  2.520951472455e-01  9.491025360004e-03]\n",
+      " [ 7.636609190032e-01  2.438324623808e-01  0.000000000000e+00  2.522344406377e-01  7.165998020053e-01  9.548555445061e-03]\n",
+      " [ 2.540182886809e-02 -1.691652080606e-03  1.000000000000e+00  1.634207518714e-02  9.283955945891e-03  2.542783581185e-04]\n",
+      " [ 3.154287926464e+00  1.578288131763e+00  0.000000000000e+00  2.279171804490e+00  7.632559539870e-01  9.596399325345e-03]\n",
+      " [ 1.578258960753e+00 -1.054777136190e+00  0.000000000000e+00  7.631214548048e-01  2.439057831974e-01 -2.972554738619e-03]\n",
+      " [ 0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  0.000000000000e+00  1.000000000000e+00]]\n",
       "\n",
-      "[ 5.960059281979e-04  2.048394055709e-03 -2.275568047834e-06 -2.198365452739e-03  5.184991611242e-03  1.898300850487e-25]\n",
+      "[-0.020617438835 -0.020060330409 -0.000413662569 -0.042837992308 -0.015113128063  0.            ]\n",
       "\n"
      ]
     }
@@ -142,10 +165,10 @@
    "source": [
     "# Differentiability\n",
     "\n",
-    "print(jacrev(element)(x, length, kn, ks))\n",
+    "print(jacrev(element)(qsps, length, kn, ks))\n",
     "print()\n",
     "\n",
-    "print(jacrev(element, 1)(x, length, kn, ks))\n",
+    "print(jacrev(element, 1)(qsps, length, kn, ks))\n",
     "print()"
    ]
   }
