@@ -14,7 +14,7 @@ from jax import Array
 from elementary.element import element_factory
 
 
-def drift_factory(exact:bool=False,
+def drift_factory(exact:bool=True,
                   beta:Optional[float]=None,
                   gamma:Optional[float]=None,
                   driver:Optional[Callable[..., Array]]=None,
@@ -77,16 +77,16 @@ def vector(qs:Array, s:Array) -> tuple[Array, Array, Array]:
     return tuple(jax.numpy.zeros_like(qs))
 
 
-def mapping(qsps:Array, dz:Array, beta:float=1.0, constant:float=0.0) -> Array:
+def mapping(qsps:Array, length:Array, beta:float=1.0, constant:float=0.0) -> Array:
     """
-    Exact sector bend body transformation
+    Exact drift transformation
 
     """
     q_x, q_y, q_s, p_x, p_y, p_s = qsps
     dp = jax.numpy.sqrt((1/beta + p_s)**2 - p_x**2 - p_y**2 - constant)
-    Q_x = q_x + p_x*dz/dp
-    Q_y = q_y + p_y*dz/dp
-    Q_s = q_s + dz/beta - dz*(1/beta + p_s)/dp
+    Q_x = q_x + p_x*length/dp
+    Q_y = q_y + p_y*length/dp
+    Q_s = q_s + length/beta - length*(1/beta + p_s)/dp
     P_x = p_x
     P_y = p_y
     P_s = p_s
