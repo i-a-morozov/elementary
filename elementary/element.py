@@ -14,7 +14,7 @@ from jax import Array
 from elementary import fold
 from elementary import nest
 from elementary import nest_list
-from elementary import midpoint
+from elementary import tao
 from elementary import sequence
 
 from elementary.hamiltonian import hamiltonian_factory
@@ -54,7 +54,7 @@ def element_factory(vector:Optional[Callable[..., tuple[Array, Array, Array]]]=N
     gamma: Optional[float]
         relativistic gamma
     driver: Optional[Callable[..., Array]]
-        symplectic integrator (midpoint)
+        symplectic integrator (tao)
     settings: Optional[dict]
         configuration settings for integrator
     order: int, default=0
@@ -84,7 +84,7 @@ def element_factory(vector:Optional[Callable[..., tuple[Array, Array, Array]]]=N
         def vector(qs:Array, s:Array, *args:Array) -> tuple[Array, Array, Array]:
             return tuple(jax.numpy.zeros_like(qs))
     if autonomous:
-        table = [(driver if driver else midpoint)(hamiltonian, **settings if settings else {})]
+        table = [(driver if driver else tao)(hamiltonian, **settings if settings else {})]
         slice = fold(sequence(0, order, table, merge=False))
         if final:
             def element(qsps:Array, length:Array, start:Array, *args:Array) -> Array:
@@ -94,7 +94,7 @@ def element_factory(vector:Optional[Callable[..., tuple[Array, Array, Array]]]=N
             return nest_list(iterations, slice)(qsps, length/iterations, start, *args)
         return element
     extended = autonomize(hamiltonian)
-    table = [(driver if driver else midpoint)(extended, **settings if settings else {})]
+    table = [(driver if driver else tao)(extended, **settings if settings else {})]
     slice = fold(sequence(0, order, table, merge=False))
     if final:
         def element(qsps:Array, length:Array, start:Array, *args:Array) -> Array:
