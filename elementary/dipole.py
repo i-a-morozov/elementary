@@ -13,7 +13,7 @@ from jax import Array
 
 from elementary.element import element_factory
 
-def dipole_factory(exact:bool=False,
+def dipole_factory(exact:bool=True,
                    multipole:bool=False,
                    beta:Optional[float]=None,
                    gamma:Optional[float]=None,
