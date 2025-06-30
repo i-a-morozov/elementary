@@ -33,12 +33,20 @@ def gamma(beta:float) -> float:
     return 1/(1 - beta**2)**0.5
 
 
-def rigidity(beta:float, gamma:float, mass:float, charge:int=1) -> float:
+def momentum(beta:float, gamma:float) -> float:
     """
-    Compute magnetic rigidity (MeV/c)
+    Compute central reference momentum
 
     """
-    return beta*gamma*mass/charge
+    return beta*gamma
+
+
+def rigidity(beta:float, gamma:float, mass:float, ratio:int=1) -> float:
+    """
+    Compute magnetic rigidity (Tm)
+
+    """
+    return 1E6/CL*momentum(beta, gamma)*mass*ratio
 
 
 def ptc(qsps:Array,
