@@ -21,10 +21,11 @@ from elementary.hamiltonian import hamiltonian_factory
 from elementary.hamiltonian import autonomize
 
 
-def element_factory(vector:Callable[..., tuple[Array, Array, Array]],
+def element_factory(vector:Optional[Callable[..., tuple[Array, Array, Array]]]=None,
                     scalar:Optional[Callable[..., Array]]=None,
                     curvature:Optional[Callable[..., Array]]=None,
                     torsion:Optional[Callable[..., Array]]=None,
+                    hamiltonian:Optional[Callable[..., Array]]=None,
                     beta:Optional[float]=None,
                     gamma:Optional[float]=None,
                     driver:Optional[Callable[..., Array]]=None,
@@ -38,7 +39,7 @@ def element_factory(vector:Callable[..., tuple[Array, Array, Array]],
 
     Parameters
     ----------
-    vector: Callable[..., tuple[Array, Array, Array]]
+    vector: Optional[Callable[..., tuple[Array, Array, Array]]]
         normalized vector potential
     scalar: Optional[Callable[..., Array]]
         normalized scalar potential
@@ -46,6 +47,8 @@ def element_factory(vector:Callable[..., tuple[Array, Array, Array]],
         curvature
     torsion: Optional[Callable[..., Array]]
         torsion
+    hamiltonian: Optional[Callable[..., Array]]
+        generic hamiltonian (other callables are ignored)
     beta: Optional[float]
         relativistic beta
     gamma: Optional[float]
@@ -68,14 +71,18 @@ def element_factory(vector:Callable[..., tuple[Array, Array, Array]],
     Callable[..., Array]
 
     """
-    hamiltonian = hamiltonian_factory(
-        vector=vector,
-        scalar=scalar,
-        curvature=curvature,
-        torsion=torsion,
-        beta=beta,
-        gamma=gamma
-    )
+    if hamiltonian is None:
+        hamiltonian = hamiltonian_factory(
+            vector=vector,
+            scalar=scalar,
+            curvature=curvature,
+            torsion=torsion,
+            beta=beta,
+            gamma=gamma
+        )
+    if vector is None:
+        def vector(qs:Array, s:Array, *args:Array) -> tuple[Array, Array, Array]:
+            return tuple(jax.numpy.zeros_like(qs))
     if autonomous:
         table = [(driver if driver else midpoint)(hamiltonian, **settings if settings else {})]
         slice = fold(sequence(0, order, table, merge=False))
