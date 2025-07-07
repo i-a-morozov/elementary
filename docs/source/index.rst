@@ -84,6 +84,14 @@ The resulting hamiltonian and element signatures are:
    examples/example-11.ipynb
    examples/example-12.ipynb
 
+   examples/wm-01.ipynb
+   examples/wm-02.ipynb
+   examples/wm-03.ipynb
+   examples/wm-04.ipynb
+   examples/wm-05.ipynb
+   examples/wm-06.ipynb
+   examples/wm-07.ipynb
+
 .. toctree::
    :caption: API:
    :maxdepth: 1

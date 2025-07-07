@@ -2,6 +2,7 @@
 .virtual_documents
 dev/
 dev.ipynb
+analytic.ipynb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
